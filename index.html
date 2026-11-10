@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:," />
-<title>SnakeAgentNFT — Preview</title>
+<title>SnakeAgentNFT — Mint Live</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
@@ -117,7 +117,7 @@ nav.main{display:none}
 @media (prefers-color-scheme: dark){.preview-banner{background:#0E3D52;color:#D9F2F3}}
 .preview-banner .wrap{display:flex;gap:10px;align-items:flex-start;padding-top:10px;padding-bottom:10px;font-size:.92rem}
 .preview-banner strong{white-space:nowrap}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--sun);flex:none;margin-top:7px}
+.dot{width:9px;height:9px;border-radius:50%;background:#4CC47A;flex:none;margin-top:7px;animation:livePulse 1.8s ease-in-out infinite}
 
 /* Hero */
 .hero{padding:22px 0 0}
@@ -295,9 +295,9 @@ img,svg,video{max-width:100%}
 .live-snake img{width:100%;height:100%;max-height:300px;object-fit:cover;object-position:center 30%;filter:grayscale(1) saturate(.25);transition:filter 1.2s ease;animation:snakeSway 5.5s ease-in-out infinite;transform-origin:50% 80%}
 @keyframes snakeSway{0%,100%{transform:rotate(-1.4deg) translateY(0)}50%{transform:rotate(1.4deg) translateY(-5px)}}
 .live-info{min-width:0;display:flex;flex-direction:column;gap:10px;justify-content:center}
-.live-badge{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:#FDEBC8;color:#7A5200;font-weight:800;font-size:.85rem;padding:7px 12px;border-radius:999px}
-@media (prefers-color-scheme: dark){.live-badge{background:#4A3808;color:#FFD97A}}
-.live-dot{width:9px;height:9px;border-radius:50%;background:var(--sun);flex:none;animation:livePulse 1.8s ease-in-out infinite}
+.live-badge{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;background:#DFF5E4;color:#14632F;font-weight:800;font-size:.85rem;padding:7px 12px;border-radius:999px}
+@media (prefers-color-scheme: dark){.live-badge{background:#143D22;color:#7FE3A0}}
+.live-dot{width:9px;height:9px;border-radius:50%;background:var(--leaf);flex:none;animation:livePulse 1.8s ease-in-out infinite}
 @keyframes livePulse{0%,100%{opacity:1}50%{opacity:.35}}
 .live-count{margin:0;font-family:"Baloo 2","PingFang SC","Hiragino Sans","Noto Sans JP",sans-serif;font-size:2rem;font-weight:800;line-height:1.05}
 .live-count span{font-size:1.05rem;color:var(--ink2);font-family:"Nunito Sans",system-ui,sans-serif;font-weight:700}
@@ -334,6 +334,35 @@ img,svg,video{max-width:100%}
 .btn-xpost:hover{background:var(--ocean-deep);color:#fff}
 .xpost-actions .note{margin:0}
 @media(min-width:560px){.xpost-actions{flex-direction:row;align-items:center}.btn-xpost{width:auto;flex:none;white-space:nowrap;padding-left:22px;padding-right:22px}.xpost-body{padding:16px 18px 18px}}
+/* Mint panel — live wallet minting */
+.mint-panel{margin-top:14px;border-color:var(--leaf)}
+.mp-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.mp-head h3{font-size:1.2rem}
+.live-pill{display:inline-flex;align-items:center;gap:7px;background:#DFF5E4;color:#14632F;font-weight:800;font-size:.78rem;letter-spacing:.06em;padding:6px 11px;border-radius:999px;white-space:nowrap}
+@media (prefers-color-scheme: dark){.live-pill{background:#143D22;color:#7FE3A0}}
+.mp-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+.mp-acct{margin:0;font-weight:700;color:var(--ink2);font-size:.92rem;min-width:0;overflow-wrap:anywhere}
+.mp-acct strong{color:var(--ink)}
+.mp-controls{justify-content:space-between;background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.qty{display:inline-flex;align-items:center;gap:6px}
+.qty button{width:44px;height:44px;min-width:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-family:"Baloo 2";font-weight:800;font-size:1.3rem;cursor:pointer;line-height:1}
+.qty button[disabled]{opacity:.4;cursor:not-allowed}
+.qty-val{min-width:52px;text-align:center;font-family:"Baloo 2";font-weight:800;font-size:1.5rem}
+.qty small{display:block;text-align:center;font-family:"Nunito Sans";font-weight:700;font-size:.72rem;color:var(--muted)}
+.mp-total{text-align:right;font-weight:700;color:var(--ink2);font-size:.92rem}
+.mp-total strong{display:block;font-family:"Baloo 2";font-size:1.5rem;color:var(--ink);line-height:1.1}
+.mp-free{color:var(--leaf);font-weight:800;font-size:.85rem}
+.mp-mint{width:100%;margin-top:14px;font-size:1.05rem;padding:14px 20px}
+.mp-status{margin:12px 0 0;font-size:.95rem;font-weight:700;color:var(--ink2);overflow-wrap:anywhere}
+.mp-status:empty{margin:0}
+.mp-status.ok{color:var(--leaf)}
+.mp-status.err{color:var(--coral-dark)}
+.mp-status a{font-weight:800}
+.agent-box{margin-top:18px;border-top:1px dashed var(--line);padding-top:16px}
+.agent-box h4{font-family:"Baloo 2";font-size:1.08rem;margin:0 0 4px}
+.agent-prompt{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:13px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.84rem;line-height:1.55;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0}
+@media(max-width:759px){.mp-controls{flex-direction:column;align-items:stretch}.mp-total{text-align:left}.qty{justify-content:space-between}}
+
 /* Marketplace — own escrow market + Element, beach theme */
 .mkt-grid{display:grid;gap:14px;margin-top:18px}
 @media(min-width:860px){.mkt-grid{grid-template-columns:1fr 1fr;align-items:stretch}}
@@ -389,7 +418,7 @@ img,svg,video{max-width:100%}
   <div class="mobile-menu" id="mobileMenu">
     <div class="wrap">
       <nav aria-label="Mobile navigation">
-        <a href="#mint"><span class="mnav-main" data-i18n="nav.mint">Mint</span> <span data-i18n="menu.mintTag">Not open yet →</span></a>
+        <a href="#mint"><span class="mnav-main" data-i18n="nav.mint">Mint</span> <span data-i18n="menu.mintTag">Live now →</span></a>
         <a href="#live"><span class="mnav-main" data-i18n="live.h2">Live Status</span> <span>0 / 4,444 →</span></a>
         <a href="#how"><span class="mnav-main" data-i18n="nav.how">How it works</span> <span data-i18n="menu.howTag">Agent mint →</span></a>
         <a href="#gallery"><span class="mnav-main" data-i18n="nav.designs">Designs</span> <span data-i18n="menu.designsTag">11 designs →</span></a>
@@ -397,7 +426,7 @@ img,svg,video{max-width:100%}
         <a href="#rarity"><span class="mnav-main">$SNAKE</span> <span data-i18n="menu.snakeTag">Claims →</span></a>
         <a href="#contracts"><span class="mnav-main" data-i18n="nav.contracts">Contracts</span> <span>BscScan →</span></a>
         <a href="#marketplace"><span class="mnav-main" data-i18n="nav.marketplace">Marketplace</span> <span data-i18n="menu.marketTag">Trade →</span></a>
-        <a href="#share"><span class="mnav-main" data-i18n="menu.share">Draft Post X</span> <span data-i18n="menu.shareTag">Share →</span></a>
+        <a href="#share"><span class="mnav-main" data-i18n="menu.share">Post X</span> <span data-i18n="menu.shareTag">Share →</span></a>
         <a href="#faq"><span class="mnav-main">FAQ</span> <span data-i18n="menu.faqTag">Status →</span></a>
         <a href="https://x.com/snakegameionft" target="_blank" rel="noopener"><span class="mnav-main">X</span> <span>@snakegameionft ↗</span></a>
       </nav>
@@ -406,7 +435,7 @@ img,svg,video{max-width:100%}
 </header>
 
 <div class="preview-banner" role="note">
-  <div class="wrap"><span class="dot" aria-hidden="true"></span><p style="margin:0" data-i18n="banner"><strong>PREVIEW —</strong> The contracts are deployed on BNB Chain, but minting is <strong>not open yet</strong>. Everything below is the confirmed launch spec, shown so you can check the artwork, rarity, prices, contract addresses, and token claims before launch.</p></div>
+  <div class="wrap"><span class="dot" aria-hidden="true"></span><p style="margin:0" data-i18n="banner"><strong>MINT LIVE —</strong> Minting is <strong>open now</strong> on BNB Chain. Connect your agent wallet in the Mint section below and mint — your first mint is FREE, then 0.0002–0.0008 BNB on the ladder, max 30 per wallet.</p></div>
 </div>
 
 <main id="top">
@@ -426,7 +455,7 @@ img,svg,video{max-width:100%}
         <h1 data-i18n="hero.h1">A blue snake, a sunset beach, <em>and 4,443 friends.</em></h1>
         <p class="lede" data-i18n="hero.lede">SnakeAgentNFT is a 4,444-piece collection of cute beach snakes on BNB Chain. Minting is agent-only — your AI agent draws a random snake from a shuffled on-chain deck — and every snake unlocks a one-time $SNAKE token claim based on its rarity.</p>
         <div class="hero-cta">
-          <a class="btn btn-mint" href="#mint" data-i18n="hero.cta1">See how minting works</a>
+          <a class="btn btn-mint" href="#mint" data-i18n="hero.cta1">Mint now</a>
           <a class="btn btn-ghost" href="#gallery" data-i18n="hero.cta2">Browse the 11 designs</a>
         </div>
         <dl class="facts">
@@ -451,7 +480,7 @@ img,svg,video{max-width:100%}
       <div class="live-card">
         <div class="live-snake"><img id="liveSnakeImg" src="assets/hero-snake.png" alt="SnakeAgentNFT hero snake — grey while minting is empty, filling with colour as mints grow" style="filter:grayscale(1) saturate(.25)"></div>
         <div class="live-info">
-          <span class="live-badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="live.closed">Mint not open yet</span></span>
+          <span class="live-badge"><span class="live-dot" aria-hidden="true"></span><span data-i18n="live.live">Mint Live</span></span>
           <p class="live-count"><strong id="liveMinted">0</strong> <span data-i18n="live.of">/ 4,444 minted</span></p>
           <div class="live-bar" id="liveBarWrap" role="progressbar" aria-label="Mint progress" aria-valuemin="0" aria-valuemax="4444" aria-valuenow="0"><div class="live-bar-fill" id="liveBarFill"></div></div>
           <p class="live-meta"><strong id="livePct">0%</strong> · <span data-i18n="live.graynote">grey while nothing is minted — full colour at sold out.</span></p>
@@ -592,9 +621,41 @@ img,svg,video{max-width:100%}
         <p class="note" style="margin:0" data-i18n="calc.note">First mint free, then 0.0002 / 0.0004 / 0.0008 BNB per mint by step. Excludes gas. At 30 mints the total is exactly 0.0138 BNB — the contract rejects anything beyond it.</p>
       </div>
 
+      <div class="panel mint-panel" id="mintPanel">
+        <div class="mp-head">
+          <h3 data-i18n="panel.h3">Mint your snakes</h3>
+          <span class="live-pill"><span class="live-dot" aria-hidden="true"></span><span data-i18n="panel.live">MINT LIVE</span></span>
+        </div>
+        <p class="note" style="margin:8px 0 0" data-i18n="panel.p">Minting is agent-only: your wallet must hold a SPACE ID Agent ID (checked on-chain). Connect your Binance Agentic Wallet — the page switches it to BNB Chain automatically — pick a quantity, and mint. The exact total is quoted live from the contract before you confirm.</p>
+        <div class="mp-row">
+          <button class="btn btn-ghost" id="connectBtn" type="button" data-i18n="panel.connect">Connect Wallet</button>
+          <p class="mp-acct" id="acctLine" data-i18n="panel.noWallet">Wallet not connected</p>
+        </div>
+        <div class="mp-row mp-controls">
+          <div>
+            <div class="qty">
+              <button id="qtyMinus" type="button" aria-label="Decrease quantity">−</button>
+              <span class="qty-val" id="qtyVal">1</span>
+              <button id="qtyPlus" type="button" aria-label="Increase quantity">+</button>
+            </div>
+            <small class="note" style="display:block;text-align:center;margin-top:2px" data-i18n="panel.qty">Quantity · max 30 / wallet</small>
+          </div>
+          <div class="mp-total"><span data-i18n="panel.total">Total</span><strong id="mpTotal">0 BNB</strong><span class="mp-free" id="mpFree">Includes your FREE first mint</span></div>
+        </div>
+        <p class="note" id="mpWalletInfo" style="margin:12px 0 0"></p>
+        <button class="btn btn-mint mp-mint" id="mintBtn" type="button" disabled data-i18n="panel.mintBtn">Mint</button>
+        <p class="mp-status" id="mpStatus" role="status" aria-live="polite"></p>
+        <div class="agent-box">
+          <h4 data-i18n="agent.h3">Or ask your AI agent to mint</h4>
+          <p class="note" style="margin:0" data-i18n="agent.p">Prefer the agent route? Copy this prompt into your AI agent (Binance Agentic Wallet). It carries the contract, the ladder, and the Agent ID requirement — set the quantity before you send it.</p>
+          <div class="agent-prompt" id="agentPrompt"></div>
+          <button class="btn btn-ghost" id="copyPromptBtn" type="button" data-i18n="agent.copy">Copy prompt</button>
+        </div>
+      </div>
+
       <div class="mint-status" id="contracts" role="note">
         <div>
-          <p data-i18n="contracts.p"><strong>Mint is not open yet.</strong> The contracts are deployed and verified on BNB Chain mainnet, but minting stays closed for now — there is no live mint button. Mint opens later, once launch prep is finished, and the opening will be announced here and on <a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X</a> at the same time. Anyone asking you to mint before that announcement is not us.</p>
+          <p data-i18n="contracts.p"><strong>Mint is live now.</strong> The contracts are deployed and verified on BNB Chain mainnet and minting is open — connect your agent wallet above and mint, or ask your AI agent to mint for you. Only ever mint through the contract addresses below: anyone pointing you to a different address is not us.</p>
           <ul class="addr-list">
             <li><span class="addr-name" data-i18n="addr.token">$SNAKE token</span><a href="https://bscscan.com/address/0x79674a2954b9ed8D4348AC1AAf80E7b54edC4c4C" target="_blank" rel="noopener"><code>0x79674a2954b9ed8D4348AC1AAf80E7b54edC4c4C</code></a></li>
             <li><span class="addr-name">SnakeAgentNFT</span><a href="https://bscscan.com/address/0xf7C1Ba2286Cee6eef10cC264664168fD015127b1" target="_blank" rel="noopener"><code>0xf7C1Ba2286Cee6eef10cC264664168fD015127b1</code></a></li>
@@ -606,7 +667,7 @@ img,svg,video{max-width:100%}
 
       <div class="steps-how" id="how">
         <div class="how"><h3 data-i18n="how.t1">Get an Agent ID</h3><p data-i18n="how.p1">Minting requires a SPACE ID Agent ID held by your agent wallet. No Agent ID, no mint — this gate is checked on-chain for every draw.</p></div>
-        <div class="how"><h3 data-i18n="how.t2">Ask your agent to mint</h3><p data-i18n="how.p2">There is no mint button for regular wallets. Your AI agent (Binance Agentic Wallet) reads the next price from the contract's <code>priceFor()</code>, shows you a preview, and mints only after you confirm.</p></div>
+        <div class="how"><h3 data-i18n="how.t2">Ask your agent to mint</h3><p data-i18n="how.p2">Connect your agent wallet in the panel above, or ask your AI agent (Binance Agentic Wallet) to mint for you — it reads the exact price from the contract's <code>quoteBulk()</code>, shows you a preview, and mints only after you confirm.</p></div>
         <div class="how"><h3 data-i18n="how.t3">The deck decides</h3><p data-i18n="how.p3">Each mint draws the next card from the shuffled deck — the design and rarity are a surprise until the draw lands. Overpayment is refunded in the same transaction.</p></div>
         <div class="how"><h3 data-i18n="how.t4">Claim your $SNAKE</h3><p data-i18n="how.p4">Once claims open, each unclaimed NFT pays out its tier's $SNAKE amount — 10,000 up to 100,000 — exactly once.</p></div>
       </div>
@@ -617,14 +678,14 @@ img,svg,video{max-width:100%}
   <section id="share">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-i18n="share.h2">Draft Kartu Post X</h2>
-        <p data-i18n="share.p">Draft postingan untuk dibagikan ke X — poster dan caption-nya sudah jadi. Tinggal klik tombolnya, cek sekali lagi di X, lalu posting. Mint tetap belum dibuka.</p>
+        <h2 data-i18n="share.h2">X Post Card</h2>
+        <p data-i18n="share.p">A ready-to-share post for X — poster and caption are done. Mint is live now, so just tap the button, double-check on X, then post.</p>
       </div>
-      <article class="xpost-card" aria-label="Draft X post for SnakeAgentNFT">
+      <article class="xpost-card" aria-label="X post card for SnakeAgentNFT">
         <div class="xpost-head">
           <img class="xpost-avatar" src="assets/hero-snake.png" alt="" width="44" height="44">
           <div class="xpost-id"><strong>SnakeAgentNFT</strong><span>@snakegameionft</span></div>
-          <span class="xpost-badge" data-i18n="share.badge">Draft</span>
+          <span class="xpost-badge" data-i18n="share.badge">Live</span>
         </div>
         <img class="xpost-img" src="assets/hero-snake.png" alt="Blue snake with a hibiscus flower and gold band, coiled on a tropical beach at sunset — poster for the X post" loading="lazy">
         <div class="xpost-body">
@@ -656,7 +717,7 @@ img,svg,video{max-width:100%}
           </ul>
           <p class="addr-line"><span class="addr-name" style="font-weight:800;color:var(--ink)" data-i18n="addr.market">Marketplace</span><br><a href="https://bscscan.com/address/0x2452226409aE096D75232Ea3B787211E2A8c4Bdf" target="_blank" rel="noopener"><code>0x2452226409aE096D75232Ea3B787211E2A8c4Bdf</code></a></p>
           <div class="mkt-status" role="note">
-            <p data-i18n="mkt.status"><strong>No listings yet — marketplace opens after mint.</strong> Minting is still closed and no snakes exist yet, so there is nothing to trade. Listings open once the first snakes are minted.</p>
+            <p data-i18n="mkt.status"><strong>No listings yet.</strong> Mint is live and the first snakes are on their way — listings appear here once owners list their snakes for sale.</p>
           </div>
         </div>
         <div class="mkt-card element">
@@ -674,14 +735,14 @@ img,svg,video{max-width:100%}
     <div class="wrap">
       <div class="sec-head">
         <h2 data-i18n="status.h2">Launch status — where things actually stand</h2>
-        <p data-i18n="status.p">No invented progress bars. This is the real checklist as of this preview.</p>
+        <p data-i18n="status.p">No invented progress bars. This is the real checklist, updated at launch.</p>
       </div>
       <ul class="status-list">
         <li><span class="badge badge-done" data-i18n="badge.done">Done</span><p data-i18n="status.s1"><strong>Artwork — 11 of 11 designs finished.</strong> Hero blue snake plus 10 variants, all in the same beach style, no text or watermarks.</p></li>
         <li><span class="badge badge-done" data-i18n="badge.done">Done</span><p data-i18n="status.s2"><strong>Contracts built &amp; tested.</strong> Deck-draw NFT, $SNAKE rarity-claim token, and a fixed-price marketplace (0% fee, 5% royalty enforced) — test suite passing 8 of 8.</p></li>
         <li><span class="badge badge-done" data-i18n="badge.done">Done</span><p data-i18n="status.s3"><strong>Metadata ready for all 4,444 tokens,</strong> with rarity, design, and edition attributes matching the deck.</p></li>
         <li><span class="badge badge-done" data-i18n="badge.done">Done</span><p data-i18n="status.s4"><strong>Deployment.</strong> All three contracts are <strong>deployed on BNB Chain mainnet and verified on-chain</strong> — $SNAKE token, SnakeAgentNFT, and Marketplace. Their addresses are published in the Mint section above, each linked to BscScan.</p></li>
-        <li><span class="badge badge-wait" data-i18n="badge.closed">Closed</span><p data-i18n="status.s5"><strong>Mint — still closed.</strong> Minting has <strong>not</strong> opened (<code>mintActive = 0</code>, nothing minted yet). The collection is deployed but not launched publicly; mint opens later, once launch prep is finished.</p></li>
+        <li><span class="badge badge-done" data-i18n="badge.done">Done</span><p data-i18n="status.s5"><strong>Mint — OPEN.</strong> Minting is <strong>live</strong> on BNB Chain mainnet (<code>mintActive = 1</code>, opened in block 132856382 — <a href="https://bscscan.com/tx/0xea5c10377e800e8828eafc1e51fcd5b4388e2da2fe4adcb9865be28c6354227f" target="_blank" rel="noopener">opening transaction</a>). Connect your agent wallet in the Mint section above and mint.</p></li>
         <li><span class="badge badge-wait" data-i18n="badge.proposed">Proposed</span><p data-i18n="status.s6"><strong>Symbols.</strong> NFT symbol <strong>SNAKEAGENT</strong> and token <strong>$SNAKE</strong> are proposals, not yet final — $SNAKE is the token symbol; the older Snake IO collection already uses SNAKE for its NFT.</p></li>
         <li><span class="badge badge-done" data-i18n="badge.done">Done</span><p data-i18n="status.s7"><strong>GitHub — repo live.</strong> <a href="https://github.com/akungamesatu6-crypto/Snakenft" target="_blank" rel="noopener">akungamesatu6-crypto/Snakenft</a> is live with the page, contracts, metadata, and all 11 artwork assets.</p></li>
         <li><span class="badge badge-done" data-i18n="badge.done">Done</span><p data-i18n="status.s8"><strong>Site deployed on Vercel.</strong> <a href="https://snakeagentnft.vercel.app/" target="_blank" rel="noopener">snakeagentnft.vercel.app</a> is live. The custom domain <strong>snakegameio.online</strong> has been added to the project — its DNS update is still pending, so the custom domain doesn't point here yet.</p></li>
@@ -695,7 +756,7 @@ img,svg,video{max-width:100%}
   <div class="wrap cols">
     <div>
       <p class="display" style="font-size:1.2rem;font-weight:800;color:var(--ink)">SnakeAgentNFT</p>
-      <p data-i18n="footer.p">4,444 beach snakes on BNB Chain. Agent-only deck-draw mint, first mint free, $SNAKE claims by rarity. Preview page — contracts deployed, mint not open yet.</p>
+      <p data-i18n="footer.p">4,444 beach snakes on BNB Chain. Agent-only deck-draw mint, first mint free, $SNAKE claims by rarity. Mint is live now.</p>
     </div>
     <div>
       <p style="margin:0 0 6px"><a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X — @snakegameionft</a></p>
@@ -710,17 +771,17 @@ img,svg,video{max-width:100%}
 (function(){
 var DICT = {
 en: {
-"title": `SnakeAgentNFT — Preview`,
+"title": `SnakeAgentNFT — Mint Live`,
 "nav.designs": `Designs`, "nav.how": `How it works`, "nav.rarity": `Rarity`, "nav.contracts": `Contracts`, "nav.marketplace": `Marketplace`, "nav.status": `Status`, "nav.mint": `Mint`,
-"menu.mintTag": `Not open yet →`, "menu.howTag": `Agent mint →`, "menu.designsTag": `11 designs →`, "menu.rarityTag": `4 tiers →`, "menu.snakeTag": `Claims →`, "menu.marketTag": `Trade →`, "menu.share": `Draft Post X`, "menu.shareTag": `Share →`, "menu.faqTag": `Status →`, "menu.open": `Open menu`, "menu.close": `Close menu`,
-"banner": `<strong>PREVIEW —</strong> The contracts are deployed on BNB Chain, but minting is <strong>not open yet</strong>. Everything below is the confirmed launch spec, shown so you can check the artwork, rarity, prices, contract addresses, and token claims before launch.`,
+"menu.mintTag": `Live now →`, "menu.howTag": `Agent mint →`, "menu.designsTag": `11 designs →`, "menu.rarityTag": `4 tiers →`, "menu.snakeTag": `Claims →`, "menu.marketTag": `Trade →`, "menu.share": `Post X`, "menu.shareTag": `Share →`, "menu.faqTag": `Status →`, "menu.open": `Open menu`, "menu.close": `Close menu`,
+"banner": `<strong>MINT LIVE —</strong> Minting is <strong>open now</strong> on BNB Chain. Connect your agent wallet in the Mint section below and mint — your first mint is FREE, then 0.0002–0.0008 BNB on the ladder, max 30 per wallet.`,
 "hero.supply": `supply`, "hero.firstMint": `First mint`, "hero.eyebrow": `Small snake · Big island energy`,
 "hero.h1": `A blue snake, a sunset beach, <em>and 4,443 friends.</em>`,
 "hero.lede": `SnakeAgentNFT is a 4,444-piece collection of cute beach snakes on BNB Chain. Minting is agent-only — your AI agent draws a random snake from a shuffled on-chain deck — and every snake unlocks a one-time $SNAKE token claim based on its rarity.`,
-"hero.cta1": `See how minting works`, "hero.cta2": `Browse the 11 designs`,
+"hero.cta1": `Mint now`, "hero.cta2": `Browse the 11 designs`,
 "fact.supply": `Total supply`, "fact.maxWallet": `Max per wallet`, "fact.mints": `mints`, "fact.maxCost": `Max wallet cost`, "fact.royalty": `Royalty`,
 "live.h2": `Live Status`, "live.p": `Watch the snake come to life. It starts out grey — and the more of the 4,444 that get minted, the more colour it gains, until it shines in full colour at sold out.`,
-"live.closed": `Mint not open yet`, "live.of": `/ 4,444 minted`, "live.graynote": `grey while nothing is minted — full colour at sold out.`,
+"live.live": `Mint Live`, "live.of": `/ 4,444 minted`, "live.graynote": `grey while nothing is minted — full colour at sold out.`,
 "live.note": `Minted count read live from the SnakeAgentNFT contract on BNB Chain · refreshes every 30 seconds.`,
 "live.stockH": `Remaining stock by rarity`, "live.leftLine": `{r} left`, "live.tierLine": `{m} minted · of {t} total`,
 "gal.h2": `The 11 designs`, "gal.p": `Five Common colourways, two Rare, two Epic, and two Legendary. You don't pick your snake — the deck does. Each design's edition count is fixed in the deck before launch.`,
@@ -742,10 +803,22 @@ en: {
 "step.r4": `Mints #21 – 30`, "step.n4": `10 mints · 0.008 BNB for the full step.`,
 "calc.h3": `Cost calculator`, "calc.label": `How many mints from one wallet?`, "calc.note": `First mint free, then 0.0002 / 0.0004 / 0.0008 BNB per mint by step. Excludes gas. At 30 mints the total is exactly 0.0138 BNB — the contract rejects anything beyond it.`,
 "calc.out1": `{n} mint · {x} BNB total`, "calc.outN": `{n} mints · {x} BNB total`,
-"contracts.p": `<strong>Mint is not open yet.</strong> The contracts are deployed and verified on BNB Chain mainnet, but minting stays closed for now — there is no live mint button. Mint opens later, once launch prep is finished, and the opening will be announced here and on <a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X</a> at the same time. Anyone asking you to mint before that announcement is not us.`,
+"panel.h3": `Mint your snakes`, "panel.live": `MINT LIVE`,
+"panel.p": `Minting is agent-only: your wallet must hold a SPACE ID Agent ID (checked on-chain). Connect your Binance Agentic Wallet — the page switches it to BNB Chain automatically — pick a quantity, and mint. The exact total is quoted live from the contract before you confirm.`,
+"panel.connect": `Connect Wallet`, "panel.connected": `Connected: {a}`, "panel.noWallet": `Wallet not connected`, "panel.qty": `Quantity · max 30 / wallet`, "panel.total": `Total`,
+"panel.freeIn": `Includes your FREE first mint`, "panel.freeUsed": `Free mint already used`, "panel.yours": `Your mints: {c} / 30`, "panel.agentOk": `Agent ID detected on this wallet.`, "panel.agentNo": `No Agent ID found on this wallet — minting will revert. Get a SPACE ID Agent ID first.`,
+"panel.mintBtn": `Mint`, "panel.mintBtnN": `Mint {n}`,
+"panel.stConnect": `Connect your wallet first.`, "panel.stNoWallet": `No wallet found. Open this page inside your wallet's browser (Binance Agentic Wallet or MetaMask), or use the agent prompt below.`,
+"panel.stRejected": `Connection or transaction was rejected in the wallet.`, "panel.stPending": `Transaction sent — waiting for confirmation on BNB Chain…`,
+"panel.stSuccess": `Mint confirmed! Tx: `, "panel.stFailed": `Mint failed. Check that your wallet holds an Agent ID, you are on BNB Chain, and you have enough BNB for the total plus gas.`,
+"panel.stMaxed": `This wallet has reached the 30-mint limit.`, "panel.stSwitch": `Switching to BNB Chain…`,
+"agent.h3": `Or ask your AI agent to mint`, "agent.p": `Prefer the agent route? Copy this prompt into your AI agent (Binance Agentic Wallet). It carries the contract, the ladder, and the Agent ID requirement — set the quantity before you send it.`,
+"agent.copy": `Copy prompt`, "agent.copied": `Copied`,
+"agent.prompt": `Mint SnakeAgentNFT for me on BNB Chain (chain ID 56). NFT contract: 0xf7C1Ba2286Cee6eef10cC264664168fD015127b1. Use my Binance Agentic Wallet, which holds my SPACE ID Agent ID (the contract checks this on-chain). Call mint(quantity) with quantity = 1. My first mint is FREE; then mints #2-10 cost 0.0002 BNB each, #11-20 cost 0.0004 BNB each, #21-30 cost 0.0008 BNB each, max 30 per wallet. Read the exact total first with quoteBulk(myAddress, quantity), show it to me, and only send the transaction after I confirm.`,
+"contracts.p": `<strong>Mint is live now.</strong> The contracts are deployed and verified on BNB Chain mainnet and minting is open — connect your agent wallet above and mint, or ask your AI agent to mint for you. Only ever mint through the contract addresses below: anyone pointing you to a different address is not us.`,
 "addr.token": `$SNAKE token`, "addr.market": `Marketplace`, "contracts.note": `Tap an address to view the contract on BscScan.`,
 "how.t1": `Get an Agent ID`, "how.p1": `Minting requires a SPACE ID Agent ID held by your agent wallet. No Agent ID, no mint — this gate is checked on-chain for every draw.`,
-"how.t2": `Ask your agent to mint`, "how.p2": `There is no mint button for regular wallets. Your AI agent (Binance Agentic Wallet) reads the next price from the contract's <code>priceFor()</code>, shows you a preview, and mints only after you confirm.`,
+"how.t2": `Ask your agent to mint`, "how.p2": `Connect your agent wallet in the panel above, or ask your AI agent (Binance Agentic Wallet) to mint for you — it reads the exact price from the contract's <code>quoteBulk()</code>, shows you a preview, and mints only after you confirm.`,
 "how.t3": `The deck decides`, "how.p3": `Each mint draws the next card from the shuffled deck — the design and rarity are a surprise until the draw lands. Overpayment is refunded in the same transaction.`,
 "how.t4": `Claim your $SNAKE`, "how.p4": `Once claims open, each unclaimed NFT pays out its tier's $SNAKE amount — 10,000 up to 100,000 — exactly once.`,
 "mkt.h2": `Marketplace`, "mkt.p": `Once the snakes are out on the beach, trading happens in two places: our own escrow marketplace built for this collection, and Element Market for secondary trading.`,
@@ -753,37 +826,37 @@ en: {
 "mkt.f1": `<strong>0% platform fee</strong>&nbsp;— the seller keeps the full sale price, minus royalty.`,
 "mkt.f2": `<strong>5% royalty to the owner</strong>&nbsp;on every sale, enforced by the contract.`,
 "mkt.f3": `<strong>List · Buy · Cancel</strong>&nbsp;— fixed-price listings only, settled through escrow.`,
-"mkt.status": `<strong>No listings yet — marketplace opens after mint.</strong> Minting is still closed and no snakes exist yet, so there is nothing to trade. Listings open once the first snakes are minted.`,
+"mkt.status": `<strong>No listings yet.</strong> Mint is live and the first snakes are on their way — listings appear here once owners list their snakes for sale.`,
 "mkt.elH": `Element Market`, "mkt.elP": `SnakeAgentNFT is also on Element Market, a third-party secondary marketplace. You can browse the collection there now, and trade snakes on Element once they have been minted and listed by their owners.`,
 "mkt.elBtn": `Trade on Element →`,
-"share.h2": `Draft X Post Card`, "share.p": `A ready-to-share draft post for X — poster and caption are done. Just tap the button, double-check on X, then post. Mint is still not open.`,
-"share.badge": `Draft`, "share.btn": `Post on X`, "share.note": `Opens the X composer in a new tab with the caption above already filled in.`,
-"status.h2": `Launch status — where things actually stand`, "status.p": `No invented progress bars. This is the real checklist as of this preview.`,
+"share.h2": `X Post Card`, "share.p": `A ready-to-share post for X — poster and caption are done. Mint is live now, so just tap the button, double-check on X, then post.`,
+"share.badge": `Live`, "share.btn": `Post on X`, "share.note": `Opens the X composer in a new tab with the caption above already filled in.`,
+"status.h2": `Launch status — where things actually stand`, "status.p": `No invented progress bars. This is the real checklist, updated at launch.`,
 "badge.done": `Done`, "badge.closed": `Closed`, "badge.proposed": `Proposed`,
 "status.s1": `<strong>Artwork — 11 of 11 designs finished.</strong> Hero blue snake plus 10 variants, all in the same beach style, no text or watermarks.`,
 "status.s2": `<strong>Contracts built &amp; tested.</strong> Deck-draw NFT, $SNAKE rarity-claim token, and a fixed-price marketplace (0% fee, 5% royalty enforced) — test suite passing 8 of 8.`,
 "status.s3": `<strong>Metadata ready for all 4,444 tokens,</strong> with rarity, design, and edition attributes matching the deck.`,
 "status.s4": `<strong>Deployment.</strong> All three contracts are <strong>deployed on BNB Chain mainnet and verified on-chain</strong> — $SNAKE token, SnakeAgentNFT, and Marketplace. Their addresses are published in the Mint section above, each linked to BscScan.`,
-"status.s5": `<strong>Mint — still closed.</strong> Minting has <strong>not</strong> opened (<code>mintActive = 0</code>, nothing minted yet). The collection is deployed but not launched publicly; mint opens later, once launch prep is finished.`,
+"status.s5": `<strong>Mint — OPEN.</strong> Minting is <strong>live</strong> on BNB Chain mainnet (<code>mintActive = 1</code>, opened in block 132856382 — <a href="https://bscscan.com/tx/0xea5c10377e800e8828eafc1e51fcd5b4388e2da2fe4adcb9865be28c6354227f" target="_blank" rel="noopener">opening transaction</a>). Connect your agent wallet in the Mint section above and mint.`,
 "status.s6": `<strong>Symbols.</strong> NFT symbol <strong>SNAKEAGENT</strong> and token <strong>$SNAKE</strong> are proposals, not yet final — $SNAKE is the token symbol; the older Snake IO collection already uses SNAKE for its NFT.`,
 "status.s7": `<strong>GitHub — repo live.</strong> <a href="https://github.com/akungamesatu6-crypto/Snakenft" target="_blank" rel="noopener">akungamesatu6-crypto/Snakenft</a> is live with the page, contracts, metadata, and all 11 artwork assets.`,
 "status.s8": `<strong>Site deployed on Vercel.</strong> <a href="https://snakeagentnft.vercel.app/" target="_blank" rel="noopener">snakeagentnft.vercel.app</a> is live. The custom domain <strong>snakegameio.online</strong> has been added to the project — its DNS update is still pending, so the custom domain doesn't point here yet.`,
 "hash.text": `Deck hash (committed shuffle, verifiable at deploy):`,
-"footer.p": `4,444 beach snakes on BNB Chain. Agent-only deck-draw mint, first mint free, $SNAKE claims by rarity. Preview page — contracts deployed, mint not open yet.`,
+"footer.p": `4,444 beach snakes on BNB Chain. Agent-only deck-draw mint, first mint free, $SNAKE claims by rarity. Mint is live now.`,
 "footer.chain": `Chain: BNB Smart Chain (56) · Standard: BEP-721 · Royalty: 5%`
 },
 zh: {
-"title": `SnakeAgentNFT — 预览`,
+"title": `SnakeAgentNFT — 铸造已开启`,
 "nav.designs": `设计`, "nav.how": `铸造方式`, "nav.rarity": `稀有度`, "nav.contracts": `合约`, "nav.marketplace": `交易市场`, "nav.status": `状态`, "nav.mint": `铸造`,
-"menu.mintTag": `尚未开放 →`, "menu.howTag": `智能体铸造 →`, "menu.designsTag": `11 款设计 →`, "menu.rarityTag": `4 个等级 →`, "menu.snakeTag": `领取 →`, "menu.marketTag": `交易 →`, "menu.share": `X 帖子草稿`, "menu.shareTag": `分享 →`, "menu.faqTag": `状态 →`, "menu.open": `打开菜单`, "menu.close": `关闭菜单`,
-"banner": `<strong>预览 —</strong> 合约已部署在 BNB Chain 上，但铸造<strong>尚未开放</strong>。以下均为已确认的上线规格，方便你在上线前核对 artwork、稀有度、价格、合约地址和代币领取。`,
+"menu.mintTag": `已开启 →`, "menu.howTag": `智能体铸造 →`, "menu.designsTag": `11 款设计 →`, "menu.rarityTag": `4 个等级 →`, "menu.snakeTag": `领取 →`, "menu.marketTag": `交易 →`, "menu.share": `X 帖子`, "menu.shareTag": `分享 →`, "menu.faqTag": `状态 →`, "menu.open": `打开菜单`, "menu.close": `关闭菜单`,
+"banner": `<strong>铸造已开启 —</strong> 铸造现已在 BNB Chain 上<strong>正式开放</strong>。在下方的铸造区连接你的智能体钱包即可铸造——首次铸造免费，之后按阶梯 0.0002–0.0008 BNB，每个钱包最多 30 次。`,
 "hero.supply": `总量`, "hero.firstMint": `首次铸造`, "hero.eyebrow": `小蛇 · 大大的海岛能量`,
 "hero.h1": `一条蓝蛇、一片落日海滩，<em>还有 4,443 个朋友。</em>`,
 "hero.lede": `SnakeAgentNFT 是 BNB Chain 上 4,444 件可爱的海滩蛇系列。铸造仅限智能体——你的 AI 智能体从链上洗牌后的牌组中随机抽取一条蛇——每条蛇都能按其稀有度解锁一次性 $SNAKE 代币领取。`,
-"hero.cta1": `查看铸造方式`, "hero.cta2": `浏览 11 款设计`,
+"hero.cta1": `立即铸造`, "hero.cta2": `浏览 11 款设计`,
 "fact.supply": `总供应量`, "fact.maxWallet": `每钱包上限`, "fact.mints": `次铸造`, "fact.maxCost": `每钱包最高成本`, "fact.royalty": `版税`,
 "live.h2": `实时状态`, "live.p": `看着这条蛇活起来。它一开始是灰色的——4,444 条中被铸造得越多，它的颜色就越丰富，直到售罄时焕发全彩。`,
-"live.closed": `铸造尚未开放`, "live.of": `/ 4,444 已铸造`, "live.graynote": `尚未铸造时为灰色——售罄时变为全彩。`,
+"live.live": `铸造进行中`, "live.of": `/ 4,444 已铸造`, "live.graynote": `尚未铸造时为灰色——售罄时变为全彩。`,
 "live.note": `已铸造数量从 BNB Chain 上的 SnakeAgentNFT 合约实时读取 · 每 30 秒刷新。`,
 "live.stockH": `各稀有度剩余库存`, "live.leftLine": `剩余 {r}`, "live.tierLine": `已铸造 {m} · 共 {t}`,
 "gal.h2": `11 款设计`, "gal.p": `五款普通配色、两款稀有、两款史诗、两款传奇。你的蛇不是你挑的——由牌组决定。每款设计的版数在上线前就已固定在牌组中。`,
@@ -805,10 +878,22 @@ zh: {
 "step.r4": `铸造 #21 – 30`, "step.n4": `10 次铸造 · 整段共 0.008 BNB。`,
 "calc.h3": `成本计算器`, "calc.label": `一个钱包要铸造多少次？`, "calc.note": `第一次铸造免费，之后按阶梯每铸造一次 0.0002 / 0.0004 / 0.0008 BNB。不含 Gas。铸造 30 次时总计正好 0.0138 BNB——合约会拒绝超出部分。`,
 "calc.out1": `{n} 次铸造 · 总计 {x} BNB`, "calc.outN": `{n} 次铸造 · 总计 {x} BNB`,
-"contracts.p": `<strong>铸造尚未开放。</strong> 合约已在 BNB Chain 主网部署并验证，但目前铸造仍处于关闭状态——没有可用的铸造按钮。铸造将在准备工作完成后开放，开放消息会同时在此处和 <a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X</a> 上公布。在该公告之前任何让你铸造的人都不是我们。`,
+"panel.h3": `铸造你的蛇`, "panel.live": `铸造进行中`,
+"panel.p": `铸造仅限智能体：你的钱包必须持有 SPACE ID Agent ID（链上验证）。连接你的 Binance Agentic Wallet——页面会自动切换到 BNB Chain——选择数量即可铸造。确认前，总价会从合约实时报价。`,
+"panel.connect": `连接钱包`, "panel.connected": `已连接：{a}`, "panel.noWallet": `钱包未连接`, "panel.qty": `数量 · 每钱包最多 30`, "panel.total": `总计`,
+"panel.freeIn": `包含你的免费首次铸造`, "panel.freeUsed": `免费铸造已使用`, "panel.yours": `你的铸造次数：{c} / 30`, "panel.agentOk": `已检测到此钱包的 Agent ID。`, "panel.agentNo": `此钱包未检测到 Agent ID——铸造将被拒绝。请先获取 SPACE ID Agent ID。`,
+"panel.mintBtn": `铸造`, "panel.mintBtnN": `铸造 {n} 条`,
+"panel.stConnect": `请先连接钱包。`, "panel.stNoWallet": `未找到钱包。请在钱包自带浏览器（Binance Agentic Wallet 或 MetaMask）中打开本页，或使用下方的智能体提示词。`,
+"panel.stRejected": `钱包拒绝了连接或交易。`, "panel.stPending": `交易已发送——正在等待 BNB Chain 确认…`,
+"panel.stSuccess": `铸造成功！交易：`, "panel.stFailed": `铸造失败。请确认你的钱包持有 Agent ID、已切换到 BNB Chain，并且 BNB 足够支付总价和 Gas。`,
+"panel.stMaxed": `此钱包已达到 30 次铸造上限。`, "panel.stSwitch": `正在切换到 BNB Chain…`,
+"agent.h3": `或让你的 AI 智能体来铸造`, "agent.p": `更喜欢智能体方式？把这段提示词复制到你的 AI 智能体（Binance Agentic Wallet）中。它包含合约地址、价格阶梯和 Agent ID 要求——发送前先设置好数量。`,
+"agent.copy": `复制提示词`, "agent.copied": `已复制`,
+"agent.prompt": `请在 BNB Chain（链 ID 56）上为我铸造 SnakeAgentNFT。NFT 合约：0xf7C1Ba2286Cee6eef10cC264664168fD015127b1。使用我的 Binance Agentic Wallet，它持有我的 SPACE ID Agent ID（合约会在链上验证）。调用 mint(quantity)，quantity = 1。我的首次铸造免费；之后第 #2–10 次每次 0.0002 BNB，第 #11–20 次每次 0.0004 BNB，第 #21–30 次每次 0.0008 BNB，每个钱包最多 30 次。请先用 quoteBulk(我的地址, quantity) 读取确切总价并展示给我，待我确认后再发送交易。`,
+"contracts.p": `<strong>铸造已开启。</strong> 合约已在 BNB Chain 主网部署并验证，铸造现已开放——在上方连接你的智能体钱包即可铸造，或让你的 AI 智能体为你铸造。请只通过下方地址铸造：任何指向其他地址的人都不是我们。`,
 "addr.token": `$SNAKE 代币`, "addr.market": `交易市场`, "contracts.note": `点击地址在 BscScan 上查看合约。`,
 "how.t1": `获取 Agent ID`, "how.p1": `铸造要求你的智能体钱包持有 SPACE ID Agent ID。没有 Agent ID，就不能铸造——每次抽取都会在链上检查这道门槛。`,
-"how.t2": `让你的智能体来铸造`, "how.p2": `普通钱包没有铸造按钮。你的 AI 智能体（Binance Agentic Wallet）会从合约的 <code>priceFor()</code> 读取下一个价格，向你展示预览，并在你确认后才铸造。`,
+"how.t2": `让你的智能体来铸造`, "how.p2": `在上方面板连接你的智能体钱包，或让你的 AI 智能体（Binance Agentic Wallet）为你铸造——它会从合约的 <code>quoteBulk()</code> 读取确切价格，向你展示预览，并在你确认后才铸造。`,
 "how.t3": `由牌组决定`, "how.p3": `每次铸造都会从洗好的牌组中抽取下一张——设计和稀有度在抽取落地前都是惊喜。多付的金额会在同一笔交易中退回。`,
 "how.t4": `领取你的 $SNAKE`, "how.p4": `领取开放后，每个未领取的 NFT 将按其等级支付 $SNAKE——10,000 到 100,000——且仅此一次。`,
 "mkt.h2": `交易市场`, "mkt.p": `等蛇都来到海滩后，交易将在两个地方进行：我们为本系列部署的自有托管交易市场，以及用于二级交易的 Element Market。`,
@@ -816,37 +901,37 @@ zh: {
 "mkt.f1": `<strong>0% 平台手续费</strong>&nbsp;——卖家保留全部售价，仅扣除版税。`,
 "mkt.f2": `<strong>每笔交易 5% 版税归所有者</strong>，由合约强制执行。`,
 "mkt.f3": `<strong>上架 · 购买 · 取消</strong>&nbsp;——仅限固定价格挂单，通过托管结算。`,
-"mkt.status": `<strong>暂无挂单——交易市场将在铸造后开放。</strong> 铸造仍处于关闭状态，目前还没有任何蛇，因此尚无可交易物品。首批蛇被铸造后即可上架。`,
+"mkt.status": `<strong>暂无挂单。</strong> 铸造已经开启，首批蛇即将到来——持有者上架后，挂单会显示在这里。`,
 "mkt.elH": `Element Market`, "mkt.elP": `SnakeAgentNFT 也已上线 Element Market——一个第三方二级交易市场。你现在就可以在那里浏览本系列；等蛇被铸造并由持有者上架后，即可在 Element 上交易。`,
 "mkt.elBtn": `在 Element 上交易 →`,
-"share.h2": `X 帖子卡片草稿`, "share.p": `一份可直接分享到 X 的帖子草稿——海报和文案都已准备好。只需点击按钮，在 X 上再确认一次，然后发布。铸造仍未开放。`,
-"share.badge": `草稿`, "share.btn": `发布到 X`, "share.note": `在新标签页中打开 X 编辑器，上面的文案已预先填好。`,
-"status.h2": `上线状态 — 实际进展`, "status.p": `没有虚构的进度条。这是本预览截至目前的真实清单。`,
+"share.h2": `X 帖子卡片`, "share.p": `一份可直接分享到 X 的帖子——海报和文案都已准备好。铸造已经开启，只需点击按钮，在 X 上再确认一次，然后发布。`,
+"share.badge": `已上线`, "share.btn": `发布到 X`, "share.note": `在新标签页中打开 X 编辑器，上面的文案已预先填好。`,
+"status.h2": `上线状态 — 实际进展`, "status.p": `没有虚构的进度条。这是上线时更新的真实清单。`,
 "badge.done": `已完成`, "badge.closed": `已关闭`, "badge.proposed": `提议`,
 "status.s1": `<strong>Artwork — 11 款设计已全部完成。</strong> 主打蓝色蛇加 10 款变体，全部采用相同的海滩风格，无文字、无水印。`,
 "status.s2": `<strong>合约已构建并通过测试。</strong> 抽牌式 NFT、$SNAKE 稀有度领取代币，以及固定价格交易市场（0% 手续费、强制 5% 版税）——测试套件 8/8 全部通过。`,
 "status.s3": `<strong>全部 4,444 个代币的元数据已就绪，</strong>稀有度、设计和版号属性与牌组一致。`,
 "status.s4": `<strong>部署。</strong> 三个合约均已<strong>部署到 BNB Chain 主网并在链上验证</strong>——$SNAKE 代币、SnakeAgentNFT 和交易市场。它们的地址已发布在上方的铸造部分，每个都链接到 BscScan。`,
-"status.s5": `<strong>铸造 — 仍处于关闭状态。</strong> 铸造<strong>尚未</strong>开放（<code>mintActive = 0</code>，尚未铸造任何代币）。该系列已部署但尚未公开发布；铸造将在准备工作完成后开放。`,
+"status.s5": `<strong>铸造 — 已开启。</strong> 铸造已在 BNB Chain 主网<strong>上线</strong>（<code>mintActive = 1</code>，于区块 132856382 开启 — <a href="https://bscscan.com/tx/0xea5c10377e800e8828eafc1e51fcd5b4388e2da2fe4adcb9865be28c6354227f" target="_blank" rel="noopener">开启交易</a>）。在上方铸造区连接你的智能体钱包即可铸造。`,
 "status.s6": `<strong>符号。</strong> NFT 符号 <strong>SNAKEAGENT</strong> 和代币 <strong>$SNAKE</strong> 目前仍是提议，尚未最终确定——$SNAKE 是代币符号；旧的 Snake IO 系列已将 SNAKE 用作其 NFT 符号。`,
 "status.s7": `<strong>GitHub — 仓库已上线。</strong> <a href="https://github.com/akungamesatu6-crypto/Snakenft" target="_blank" rel="noopener">akungamesatu6-crypto/Snakenft</a> 已上线，包含页面、合约、元数据和全部 11 张 artwork。`,
 "status.s8": `<strong>网站已部署到 Vercel。</strong> <a href="https://snakeagentnft.vercel.app/" target="_blank" rel="noopener">snakeagentnft.vercel.app</a> 已上线。自定义域名 <strong>snakegameio.online</strong> 已添加到项目——其 DNS 更新仍待完成，因此该域名尚未指向这里。`,
 "hash.text": `牌组哈希（已提交的洗牌，可在部署时验证）：`,
-"footer.p": `BNB Chain 上的 4,444 条海滩蛇。仅限智能体的抽牌铸造，首次铸造免费，按稀有度领取 $SNAKE。预览页面——合约已部署，铸造尚未开放。`,
+"footer.p": `BNB Chain 上的 4,444 条海滩蛇。仅限智能体的抽牌铸造，首次铸造免费，按稀有度领取 $SNAKE。铸造现已开启。`,
 "footer.chain": `链：BNB Smart Chain (56) · 标准：BEP-721 · 版税：5%`
 },
 ja: {
-"title": `SnakeAgentNFT — プレビュー`,
+"title": `SnakeAgentNFT — ミント開始`,
 "nav.designs": `デザイン`, "nav.how": `ミント方法`, "nav.rarity": `レアリティ`, "nav.contracts": `コントラクト`, "nav.marketplace": `マーケットプレイス`, "nav.status": `ステータス`, "nav.mint": `ミント`,
-"menu.mintTag": `まだ開始していません →`, "menu.howTag": `エージェントミント →`, "menu.designsTag": `11 デザイン →`, "menu.rarityTag": `4 ティア →`, "menu.snakeTag": `請求 →`, "menu.marketTag": `取引 →`, "menu.share": `X 投稿ドラフト`, "menu.shareTag": `シェア →`, "menu.faqTag": `ステータス →`, "menu.open": `メニューを開く`, "menu.close": `メニューを閉じる`,
-"banner": `<strong>プレビュー —</strong> コントラクトは BNB Chain にデプロイ済みですが、ミントは<strong>まだ開始していません</strong>。以下はすべて確定済みのローンチ仕様です。アートワーク、レアリティ、価格、コントラクトアドレス、トークンの請求を事前に確認できます。`,
+"menu.mintTag": `開始しました →`, "menu.howTag": `エージェントミント →`, "menu.designsTag": `11 デザイン →`, "menu.rarityTag": `4 ティア →`, "menu.snakeTag": `請求 →`, "menu.marketTag": `取引 →`, "menu.share": `X 投稿`, "menu.shareTag": `シェア →`, "menu.faqTag": `ステータス →`, "menu.open": `メニューを開く`, "menu.close": `メニューを閉じる`,
+"banner": `<strong>ミント開始 —</strong> BNB Chain でミントが<strong>開始しました</strong>。下のミントセクションでエージェントウォレットを接続してミントしてください——初回は無料、その後はラダー方式で 0.0002–0.0008 BNB、ウォレットあたり最大 30 回です。`,
 "hero.supply": `供給量`, "hero.firstMint": `初回ミント`, "hero.eyebrow": `小さな蛇 · 大きな島のエネルギー`,
 "hero.h1": `青い蛇と夕日のビーチ、<em>そして 4,443 匹の仲間たち。</em>`,
 "hero.lede": `SnakeAgentNFT は BNB Chain 上の 4,444 点の可愛いビーチ蛇コレクションです。ミントはエージェント専用——AI エージェントがオンチェーンでシャッフルされたデッキからランダムに 1 匹を引きます——そしてすべての蛇がレアリティに応じた一回限りの $SNAKE トークン請求をアンロックします。`,
-"hero.cta1": `ミントの仕組みを見る`, "hero.cta2": `11 デザインを見る`,
+"hero.cta1": `今すぐミント`, "hero.cta2": `11 デザインを見る`,
 "fact.supply": `総供給量`, "fact.maxWallet": `ウォレット上限`, "fact.mints": `回ミント`, "fact.maxCost": `ウォレット最大コスト`, "fact.royalty": `ロイヤルティ`,
 "live.h2": `ライブステータス`, "live.p": `蛇が命を吹き込まれる様子を見守りましょう。最初はグレーですが、4,444 匹のうちミントされる数が増えるほど色づき、完売時にはフルカラーで輝きます。`,
-"live.closed": `ミントはまだ開始していません`, "live.of": `/ 4,444 ミント済み`, "live.graynote": `未ミントの間はグレー——完売でフルカラーになります。`,
+"live.live": `ミント開始`, "live.of": `/ 4,444 ミント済み`, "live.graynote": `未ミントの間はグレー——完売でフルカラーになります。`,
 "live.note": `ミント数は BNB Chain 上の SnakeAgentNFT コントラクトからライブ取得 · 30 秒ごとに更新。`,
 "live.stockH": `レアリティ別の残り在庫`, "live.leftLine": `残り {r}`, "live.tierLine": `{m} ミント済み · 全 {t}`,
 "gal.h2": `11 のデザイン`, "gal.p": `コモン 5 色、レア 2 種、エピック 2 種、レジェンダリー 2 種。あなたの蛇は自分で選べません——デッキが決めます。各デザインの版数はローンチ前にデッキへ固定されています。`,
@@ -868,10 +953,22 @@ ja: {
 "step.r4": `ミント #21 – 30`, "step.n4": `10 回ミント · このステップ合計 0.008 BNB。`,
 "calc.h3": `コスト計算機`, "calc.label": `1 つのウォレットで何回ミントしますか？`, "calc.note": `初回は無料、その後はステップごとに 1 回 0.0002 / 0.0004 / 0.0008 BNB。ガス代は含みません。30 回では合計ちょうど 0.0138 BNB となり、それを超える分はコントラクトが拒否します。`,
 "calc.out1": `{n} 回ミント · 合計 {x} BNB`, "calc.outN": `{n} 回ミント · 合計 {x} BNB`,
-"contracts.p": `<strong>ミントはまだ開始していません。</strong> コントラクトは BNB Chain メインネットにデプロイされ検証済みですが、ミントは現在も閉じたままです——有効なミントボタンはありません。ミントは準備が整い次第開始し、開始はこちらと <a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X</a> で同時に告知します。その告知前にミントを促す者は私たちではありません。`,
+"panel.h3": `あなたの蛇をミント`, "panel.live": `ミント開始`,
+"panel.p": `ミントはエージェント専用です：ウォレットが SPACE ID Agent ID を保持している必要があります（オンチェーンで確認）。Binance Agentic Wallet を接続してください——ページが自動で BNB Chain に切り替えます——数量を選んでミントしましょう。合計額は確認前にコントラクトからライブで見積もられます。`,
+"panel.connect": `ウォレットを接続`, "panel.connected": `接続済み：{a}`, "panel.noWallet": `ウォレット未接続`, "panel.qty": `数量 · ウォレットあたり最大 30`, "panel.total": `合計`,
+"panel.freeIn": `初回ミント無料分を含みます`, "panel.freeUsed": `無料ミントは使用済みです`, "panel.yours": `あなたのミント数：{c} / 30`, "panel.agentOk": `このウォレットで Agent ID が検出されました。`, "panel.agentNo": `このウォレットに Agent ID が見つかりません——ミントはリバートします。先に SPACE ID Agent ID を取得してください。`,
+"panel.mintBtn": `ミント`, "panel.mintBtnN": `{n} 匹ミント`,
+"panel.stConnect": `まずウォレットを接続してください。`, "panel.stNoWallet": `ウォレットが見つかりません。ウォレットのブラウザ（Binance Agentic Wallet または MetaMask）内でこのページを開くか、下のエージェント用プロンプトを使ってください。`,
+"panel.stRejected": `ウォレットで接続または取引が拒否されました。`, "panel.stPending": `取引を送信しました——BNB Chain での確認を待っています…`,
+"panel.stSuccess": `ミントが確定しました！Tx：`, "panel.stFailed": `ミントに失敗しました。ウォレットが Agent ID を保持していること、BNB Chain に接続していること、合計額とガス代分の BNB があることを確認してください。`,
+"panel.stMaxed": `このウォレットは 30 回のミント上限に達しています。`, "panel.stSwitch": `BNB Chain に切り替えています…`,
+"agent.h3": `または AI エージェントにミントを依頼`, "agent.p": `エージェント経由がお好みですか？このプロンプトを AI エージェント（Binance Agentic Wallet）にコピーしてください。コントラクト、価格ラダー、Agent ID の要件が含まれています——送信前に数量を設定してください。`,
+"agent.copy": `プロンプトをコピー`, "agent.copied": `コピーしました`,
+"agent.prompt": `BNB Chain（チェーン ID 56）で SnakeAgentNFT をミントしてください。NFT コントラクト：0xf7C1Ba2286Cee6eef10cC264664168fD015127b1。私の SPACE ID Agent ID を保持する Binance Agentic Wallet を使用してください（コントラクトがオンチェーンで確認します）。mint(quantity) を quantity = 1 で呼び出してください。初回ミントは無料、その後 #2–10 は 1 回 0.0002 BNB、#11–20 は 1 回 0.0004 BNB、#21–30 は 1 回 0.0008 BNB、ウォレットあたり最大 30 回です。まず quoteBulk(私のアドレス, quantity) で正確な合計を読み取り、私に提示して、私が確認した後にのみ取引を送信してください。`,
+"contracts.p": `<strong>ミントを開始しました。</strong> コントラクトは BNB Chain メインネットにデプロイされ検証済みで、ミントはオープンしています——上のパネルでエージェントウォレットを接続してミントするか、AI エージェントにミントを依頼してください。ミントは必ず以下のコントラクトアドレス経由でのみ行ってください：別のアドレスを案内する者は私たちではありません。`,
 "addr.token": `$SNAKE トークン`, "addr.market": `マーケットプレイス`, "contracts.note": `アドレスをタップすると BscScan でコントラクトを確認できます。`,
 "how.t1": `Agent ID を取得`, "how.p1": `ミントには、エージェントウォレットが SPACE ID Agent ID を保持している必要があります。Agent ID がなければミントできません——このゲートはドローごとにオンチェーンで確認されます。`,
-"how.t2": `エージェントにミントを依頼`, "how.p2": `通常のウォレット向けのミントボタンはありません。AI エージェント（Binance Agentic Wallet）がコントラクトの <code>priceFor()</code> から次の価格を読み取り、プレビューを表示し、あなたが確認した後にのみミントします。`,
+"how.t2": `エージェントにミントを依頼`, "how.p2": `上のパネルでエージェントウォレットを接続するか、AI エージェント（Binance Agentic Wallet）にミントを依頼してください——エージェントはコントラクトの <code>quoteBulk()</code> から正確な価格を読み取り、プレビューを表示し、あなたが確認した後にのみミントします。`,
 "how.t3": `デッキが決める`, "how.p3": `各ミントはシャッフルされたデッキから次のカードを引きます——デザインとレアリティはドローが確定するまでサプライズです。過払い分は同じトランザクションで返金されます。`,
 "how.t4": `$SNAKE を請求`, "how.p4": `請求が開始すると、未請求の NFT はティアに応じた $SNAKE（10,000 ～ 100,000）を正確に一度だけ支払います。`,
 "mkt.h2": `マーケットプレイス`, "mkt.p": `蛇たちがビーチに揃ったら、取引は 2 か所で行われます：このコレクションのためにデプロイされた独自のエスクロー型マーケットプレイスと、二次取引向けの Element Market です。`,
@@ -879,23 +976,23 @@ ja: {
 "mkt.f1": `<strong>プラットフォーム手数料 0%</strong>&nbsp;——売り手はロイヤルティを除いた売却額を全額受け取ります。`,
 "mkt.f2": `<strong>すべての売却で所有者に 5% のロイヤルティ</strong>、コントラクトにより強制されます。`,
 "mkt.f3": `<strong>出品 · 購入 · キャンセル</strong>&nbsp;——固定価格の出品のみ、エスクローで決済されます。`,
-"mkt.status": `<strong>まだ出品はありません——マーケットプレイスはミント後にオープンします。</strong> ミントはまだクローズしており、蛇はまだ存在しないため、取引できるものはありません。最初の蛇がミントされ次第、出品が開始します。`,
+"mkt.status": `<strong>まだ出品はありません。</strong> ミントは開始しており、最初の蛇たちがもうすぐやって来ます——所有者が蛇を出品次第、ここに表示されます。`,
 "mkt.elH": `Element Market`, "mkt.elP": `SnakeAgentNFT はサードパーティの二次マーケットプレイスである Element Market にも掲載されています。今すぐコレクションを閲覧でき、蛇がミントされ所有者が出品すれば Element で取引できます。`,
 "mkt.elBtn": `Element で取引 →`,
-"share.h2": `X 投稿カードのドラフト`, "share.p": `X へシェアできる下書き投稿——ポスターとキャプションは完成しています。ボタンをタップし、X で最終確認して投稿するだけです。ミントはまだ開始していません。`,
-"share.badge": `ドラフト`, "share.btn": `X に投稿`, "share.note": `新しいタブで X の投稿画面が開き、上のキャプションが入力済みになります。`,
-"status.h2": `ローンチ状況 — 実際の進捗`, "status.p": `捏造の進捗バーはありません。これはプレビュー時点の実際のチェックリストです。`,
+"share.h2": `X 投稿カード`, "share.p": `X へシェアできる投稿——ポスターとキャプションは完成しています。ミントは開始しました。ボタンをタップし、X で最終確認して投稿するだけです。`,
+"share.badge": `ライブ`, "share.btn": `X に投稿`, "share.note": `新しいタブで X の投稿画面が開き、上のキャプションが入力済みになります。`,
+"status.h2": `ローンチ状況 — 実際の進捗`, "status.p": `捏造の進捗バーはありません。これはローンチ時に更新された実際のチェックリストです。`,
 "badge.done": `完了`, "badge.closed": `クローズ`, "badge.proposed": `提案`,
 "status.s1": `<strong>アートワーク — 11 デザインすべて完成。</strong> ヒーローの青い蛇と 10 バリアント、すべて同じビーチスタイルで、文字やウォーターマークはありません。`,
 "status.s2": `<strong>コントラクトは構築・テスト済み。</strong> デッキドロー NFT、$SNAKE レアリティ請求トークン、固定価格マーケットプレイス（手数料 0%、ロイヤルティ 5% を強制）——テストスイートは 8/8 合格です。`,
 "status.s3": `<strong>全 4,444 トークンのメタデータが準備完了。</strong>レアリティ、デザイン、エディション属性はデッキと一致しています。`,
 "status.s4": `<strong>デプロイ。</strong> 3 つのコントラクトはすべて <strong>BNB Chain メインネットにデプロイされ、オンチェーンで検証済み</strong> です——$SNAKE トークン、SnakeAgentNFT、マーケットプレイス。アドレスは上記のミントセクションに公開され、それぞれ BscScan にリンクしています。`,
-"status.s5": `<strong>ミント — まだクローズ。</strong> ミントは<strong>まだ</strong>開始していません（<code>mintActive = 0</code>、まだ何もミントされていません）。コレクションはデプロイ済みですが公開ローンチはしておらず、ミントは準備が整い次第開始します。`,
+"status.s5": `<strong>ミント — オープン。</strong> ミントは BNB Chain メインネットで<strong>開始しました</strong>（<code>mintActive = 1</code>、ブロック 132856382 でオープン — <a href="https://bscscan.com/tx/0xea5c10377e800e8828eafc1e51fcd5b4388e2da2fe4adcb9865be28c6354227f" target="_blank" rel="noopener">オープニング取引</a>）。上のミントセクションでエージェントウォレットを接続してミントしてください。`,
 "status.s6": `<strong>シンボル。</strong> NFT シンボル <strong>SNAKEAGENT</strong> とトークン <strong>$SNAKE</strong> は提案であり、まだ最終決定ではありません——$SNAKE はトークンのシンボルです。旧 Snake IO コレクションはすでに SNAKE を NFT シンボルとして使用しています。`,
 "status.s7": `<strong>GitHub — リポジトリ公開中。</strong> <a href="https://github.com/akungamesatu6-crypto/Snakenft" target="_blank" rel="noopener">akungamesatu6-crypto/Snakenft</a> が公開され、ページ、コントラクト、メタデータ、全 11 点のアートワークが含まれています。`,
 "status.s8": `<strong>サイトは Vercel にデプロイ済み。</strong> <a href="https://snakeagentnft.vercel.app/" target="_blank" rel="noopener">snakeagentnft.vercel.app</a> が公開中です。カスタムドメイン <strong>snakegameio.online</strong> はプロジェクトに追加済みですが、DNS 更新がまだのため、このドメインはまだここを指していません。`,
 "hash.text": `デッキハッシュ（コミット済みシャッフル、デプロイ時に検証可能）：`,
-"footer.p": `BNB Chain 上の 4,444 匹のビーチ蛇。エージェント専用のデッキドローミント、初回無料、レアリティに応じた $SNAKE 請求。プレビューページ——コントラクトはデプロイ済み、ミントはまだ開始していません。`,
+"footer.p": `BNB Chain 上の 4,444 匹のビーチ蛇。エージェント専用のデッキドローミント、初回無料、レアリティに応じた $SNAKE 請求。ミント開始しました。`,
 "footer.chain": `チェーン：BNB Smart Chain (56) · 標準：BEP-721 · ロイヤルティ：5%`
 }
 };
@@ -914,6 +1011,7 @@ function apply(l){
   if (window.__refreshCalc) window.__refreshCalc();
   if (window.__refreshBurger) window.__refreshBurger();
   if (window.__refreshLive) window.__refreshLive();
+  if (window.__refreshMintPanel) window.__refreshMintPanel();
 }
 document.querySelectorAll('.lang-btn').forEach(function(b){
   b.addEventListener('click', function(){
@@ -1105,6 +1203,193 @@ apply(lang);
   render();
   poll();
   setInterval(poll, 30000);
+})();
+</script>
+
+<script>
+// Mint panel — Connect Wallet (auto-switch to BNB Chain 56), live quoteBulk() pricing, mint(uint256).
+// Agent-only is enforced on-chain: the contract reverts unless the wallet holds a SPACE ID Agent ID.
+(function(){
+  var NFT = '0xf7C1Ba2286Cee6eef10cC264664168fD015127b1';
+  var CHAIN_ID = '0x38'; // BNB Smart Chain, 56
+  var RPCS = ['https://bsc-dataseed.binance.org/', 'https://bsc-dataseed1.defibit.io/', 'https://bsc-dataseed2.defibit.io/'];
+  var SEL = { mint: '0xa0712d68', quote: '0x86c2a4f0', count: '0xed9ec888', holds: '0x11213086' };
+  var ZERO = '0x0000000000000000000000000000000000000000';
+  var MAXW = 30;
+  var connectBtn = document.getElementById('connectBtn');
+  var acctLine = document.getElementById('acctLine');
+  var qtyVal = document.getElementById('qtyVal');
+  var minusBtn = document.getElementById('qtyMinus');
+  var plusBtn = document.getElementById('qtyPlus');
+  var totalEl = document.getElementById('mpTotal');
+  var freeEl = document.getElementById('mpFree');
+  var infoEl = document.getElementById('mpWalletInfo');
+  var mintBtn = document.getElementById('mintBtn');
+  var statusEl = document.getElementById('mpStatus');
+  var promptEl = document.getElementById('agentPrompt');
+  var copyBtn = document.getElementById('copyPromptBtn');
+  if (!connectBtn || !mintBtn) return;
+  var account = null, qty = 1, myCount = 0, hasAgent = null, freeUsed = null, busy = false, quoteWei = null, lastStatus = null;
+
+  function t(k, fb){ var s = window.I18N ? window.I18N.t(k) : fb; return (s === k) ? fb : s; }
+  function short(a){ return a ? a.slice(0, 6) + '…' + a.slice(-4) : ''; }
+  function padAddr(a){ return a.toLowerCase().replace('0x', '').padStart(64, '0'); }
+  function padUint(n){ return BigInt(n).toString(16).padStart(64, '0'); }
+  function fmtBNB(wei){
+    if (wei === null) return '— BNB';
+    var v = Number(wei) / 1e18;
+    return (Math.round(v * 100000) / 100000).toString() + ' BNB';
+  }
+  function ladderQuote(start, n){
+    var total = 0n;
+    for (var i = 1; i <= n; i++){
+      var pos = start + i;
+      if (pos === 1) total += 0n;
+      else if (pos <= 10) total += 200000000000000n;
+      else if (pos <= 20) total += 400000000000000n;
+      else total += 800000000000000n;
+    }
+    return total;
+  }
+  function setStatus(kind, html){
+    lastStatus = { kind: kind, html: html };
+    statusEl.className = 'mp-status' + (kind ? ' ' + kind : '');
+    statusEl.innerHTML = html || '';
+  }
+  function render(){
+    // Language-dependent static strings handled by data-i18n; dynamic ones here.
+    if (promptEl) promptEl.textContent = t('agent.prompt', '');
+    if (account){
+      connectBtn.textContent = t('panel.connected', 'Connected: {a}').replace('{a}', short(account));
+      acctLine.innerHTML = '<strong>' + short(account) + '</strong> · BNB Chain (56)';
+    } else {
+      connectBtn.textContent = t('panel.connect', 'Connect Wallet');
+      acctLine.textContent = t('panel.noWallet', 'Wallet not connected');
+    }
+    var maxQty = account ? Math.max(0, MAXW - myCount) : MAXW;
+    if (qty > Math.max(1, maxQty)) qty = Math.max(1, maxQty);
+    if (qty < 1) qty = 1;
+    qtyVal.textContent = qty;
+    minusBtn.disabled = busy || qty <= 1;
+    plusBtn.disabled = busy || qty >= Math.max(1, maxQty);
+    totalEl.textContent = fmtBNB(quoteWei !== null ? quoteWei : ladderQuote(account ? myCount : 0, qty));
+    if (account && freeUsed === false) freeEl.textContent = t('panel.freeIn', 'Includes your FREE first mint');
+    else if (account && freeUsed === true) freeEl.textContent = t('panel.freeUsed', 'Free mint already used');
+    else if (!account) freeEl.textContent = t('panel.freeIn', 'Includes your FREE first mint');
+    else freeEl.textContent = '';
+    if (account){
+      var parts = [t('panel.yours', 'Your mints: {c} / 30').replace('{c}', myCount)];
+      if (hasAgent === true) parts.push(t('panel.agentOk', 'Agent ID detected on this wallet.'));
+      if (hasAgent === false) parts.push(t('panel.agentNo', 'No Agent ID found on this wallet — minting will revert. Get a SPACE ID Agent ID first.'));
+      infoEl.textContent = parts.join(' ');
+    } else infoEl.textContent = '';
+    mintBtn.disabled = busy || !account || maxQty <= 0;
+    mintBtn.textContent = qty > 1 ? t('panel.mintBtnN', 'Mint {n}').replace('{n}', qty) : t('panel.mintBtn', 'Mint');
+    if (lastStatus) { statusEl.className = 'mp-status' + (lastStatus.kind ? ' ' + lastStatus.kind : ''); statusEl.innerHTML = lastStatus.html; }
+  }
+  window.__refreshMintPanel = render;
+
+  function rpcCall(data){
+    // Prefer the connected wallet provider; fall back to public BSC RPCs.
+    if (window.ethereum && account){
+      return window.ethereum.request({ method: 'eth_call', params: [{ to: NFT, data: data }, 'latest'] });
+    }
+    function go(i){
+      return fetch(RPCS[i], { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_call', params: [{ to: NFT, data: data }, 'latest'] })
+      }).then(function(r){ return r.json(); }).then(function(j){
+        if (!j || !j.result || j.result === '0x') throw new Error('no result');
+        return j.result;
+      }).catch(function(e){ if (i + 1 < RPCS.length) return go(i + 1); throw e; });
+    }
+    return go(0);
+  }
+  function refreshQuote(){
+    var who = account || ZERO;
+    var start = account ? myCount : 0;
+    rpcCall(SEL.quote + padAddr(who) + padUint(qty)).then(function(res){
+      quoteWei = BigInt('0x' + res.slice(2, 66));
+      render();
+    }).catch(function(){ quoteWei = ladderQuote(start, qty); render(); });
+  }
+  function refreshWallet(){
+    if (!account) { refreshQuote(); render(); return; }
+    rpcCall(SEL.count + padAddr(account)).then(function(res){ myCount = parseInt(res, 16) || 0; refreshQuote(); render(); }).catch(function(){ refreshQuote(); render(); });
+    rpcCall(SEL.holds + padAddr(account)).then(function(res){ hasAgent = parseInt(res, 16) === 1; render(); }).catch(function(){});
+    // freeUsed(address) selector 0x2626c4bf
+    rpcCall('0x2626c4bf' + padAddr(account)).then(function(res){ freeUsed = parseInt(res, 16) === 1; render(); }).catch(function(){});
+  }
+  function ensureChain(){
+    return window.ethereum.request({ method: 'eth_chainId' }).then(function(cid){
+      if (cid === CHAIN_ID) return;
+      setStatus('', t('panel.stSwitch', 'Switching to BNB Chain…'));
+      return window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: CHAIN_ID }] }).catch(function(e){
+        if (e && e.code === 4902){
+          return window.ethereum.request({ method: 'wallet_addEthereumChain', params: [{ chainId: CHAIN_ID, chainName: 'BNB Smart Chain', nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 }, rpcUrls: ['https://bsc-dataseed.binance.org/'], blockExplorerUrls: ['https://bscscan.com'] }] });
+        }
+        throw e;
+      });
+    });
+  }
+  function connect(){
+    if (!window.ethereum){ setStatus('err', t('panel.stNoWallet', 'No wallet found.')); render(); return; }
+    busy = true; render();
+    window.ethereum.request({ method: 'eth_requestAccounts' }).then(function(accs){
+      account = accs && accs[0] ? accs[0] : null;
+      return ensureChain();
+    }).then(function(){
+      busy = false; setStatus('', ''); refreshWallet(); render();
+    }).catch(function(e){
+      busy = false;
+      setStatus('err', (e && e.code === 4001) ? t('panel.stRejected', 'Rejected in the wallet.') : t('panel.stFailed', 'Mint failed.'));
+      render();
+    });
+  }
+  function doMint(){
+    if (!account){ setStatus('err', t('panel.stConnect', 'Connect your wallet first.')); render(); return; }
+    if (myCount >= MAXW){ setStatus('err', t('panel.stMaxed', 'Wallet limit reached.')); render(); return; }
+    if (hasAgent === false){ setStatus('err', t('panel.agentNo', 'No Agent ID found on this wallet.')); render(); return; }
+    busy = true; render();
+    ensureChain().then(function(){
+      return rpcCall(SEL.quote + padAddr(account) + padUint(qty));
+    }).then(function(res){
+      var value = BigInt('0x' + res.slice(2, 66));
+      quoteWei = value;
+      var data = SEL.mint + padUint(qty);
+      return window.ethereum.request({ method: 'eth_sendTransaction', params: [{ from: account, to: NFT, data: data, value: '0x' + value.toString(16) }] });
+    }).then(function(tx){
+      busy = false;
+      setStatus('ok', t('panel.stSuccess', 'Mint confirmed! Tx: ') + '<a href="https://bscscan.com/tx/' + tx + '" target="_blank" rel="noopener">' + String(tx).slice(0, 10) + '…</a>');
+      refreshWallet(); render();
+    }).catch(function(e){
+      busy = false;
+      if (e && e.code === 4001) setStatus('err', t('panel.stRejected', 'Rejected in the wallet.'));
+      else setStatus('err', t('panel.stFailed', 'Mint failed.'));
+      render();
+    });
+  }
+  connectBtn.addEventListener('click', connect);
+  mintBtn.addEventListener('click', doMint);
+  minusBtn.addEventListener('click', function(){ if (qty > 1){ qty--; refreshQuote(); render(); } });
+  plusBtn.addEventListener('click', function(){ var m = account ? Math.max(1, MAXW - myCount) : MAXW; if (qty < m){ qty++; refreshQuote(); render(); } });
+  if (copyBtn){
+    copyBtn.addEventListener('click', function(){
+      var txt = promptEl ? promptEl.textContent : '';
+      function done(){ copyBtn.textContent = t('agent.copied', 'Copied'); setTimeout(function(){ copyBtn.textContent = t('agent.copy', 'Copy prompt'); }, 1800); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done).catch(done);
+      else {
+        var ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch(e) {}
+        document.body.removeChild(ta); done();
+      }
+    });
+  }
+  if (window.ethereum && window.ethereum.on){
+    window.ethereum.on('accountsChanged', function(accs){ account = accs && accs[0] ? accs[0] : null; myCount = 0; hasAgent = null; freeUsed = null; refreshWallet(); render(); });
+    window.ethereum.on('chainChanged', function(){ refreshWallet(); render(); });
+  }
+  render();
+  refreshQuote();
 })();
 </script>
 </body>
