@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>SnakeAgentNFT — Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF6E3; --bg2:#FFEFD0; --surface:#FFFDF7; --surface2:#FFF1D6;
+  --ink:#102E3D; --ink2:#3D5A68; --muted:#6B8591;
+  --line:#EAD9B8;
+  --ocean:#0E7C86; --ocean-deep:#0B4F6C; --coral:#FF5A3C; --coral-dark:#D63F24;
+  --sun:#F2A81D; --sand:#F6D48A; --leaf:#2E9E5B;
+  --common:#2E9E5B; --rare:#7B5CD6; --epic:#D98A06; --legendary:#D63F24;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(16,46,61,.12);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#071C28; --bg2:#0A2737; --surface:#0D2E40; --surface2:#123649;
+    --ink:#F4ECD8; --ink2:#C4D6DC; --muted:#8FA9B3;
+    --line:#1E4A5E;
+    --ocean:#2FB3BE; --ocean-deep:#7ED3DC; --coral:#FF7A5C; --coral-dark:#FF9A85;
+    --sun:#FFB93E; --sand:#8A6D2F; --leaf:#4CC47A;
+    --common:#4CC47A; --rare:#B49AF0; --epic:#FFB93E; --legendary:#FF7A5C;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito Sans",system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.display{font-family:"Baloo 2",system-ui,sans-serif;line-height:1.08;margin:0}
+img{max-width:100%;display:block}
+a{color:var(--ocean-deep)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+button,[role="button"],a.btn,summary{min-height:44px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:6px}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;gap:10px;padding:10px 0}
+.logo{font-family:"Baloo 2";font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none;letter-spacing:.2px;white-space:nowrap}
+.logo span{color:var(--coral)}
+nav.main{display:none;gap:4px;margin-left:8px}
+nav.main a{color:var(--ink2);text-decoration:none;font-weight:700;font-size:.92rem;padding:10px 10px;border-radius:10px}
+nav.main a:hover{background:var(--surface2);color:var(--ink)}
+.header-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
+.xlink{display:inline-flex;align-items:center;gap:7px;color:var(--ink);text-decoration:none;font-weight:800;font-size:.9rem;padding:9px 12px;border:1.5px solid var(--line);border-radius:999px;background:var(--surface);min-height:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:800;border-radius:999px;padding:11px 20px;border:0;cursor:pointer;font-family:inherit;font-size:.98rem}
+.btn-mint{background:var(--coral);color:#fff;box-shadow:0 6px 16px rgba(255,90,60,.35)}
+.btn-mint:hover{background:var(--coral-dark)}
+.btn-ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.btn[disabled]{opacity:.55;cursor:not-allowed;box-shadow:none}
+@media(min-width:760px){nav.main{display:flex}}
+@media(max-width:520px){
+  .logo{font-size:1.08rem}
+  .xlink .handle{display:none}
+  .xlink{padding:9px 11px}
+  .btn-mint{padding:11px 16px}
+  .preview-banner .wrap{font-size:.85rem}
+  .hero-img img{height:54vw}
+  .hero-body h1{font-size:1.9rem}
+  .lede{font-size:1rem}
+}
+
+/* Preview banner */
+.preview-banner{background:var(--ocean-deep);color:#EAF7F8}
+@media (prefers-color-scheme: dark){.preview-banner{background:#0E3D52;color:#D9F2F3}}
+.preview-banner .wrap{display:flex;gap:10px;align-items:flex-start;padding-top:10px;padding-bottom:10px;font-size:.92rem}
+.preview-banner strong{white-space:nowrap}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--sun);flex:none;margin-top:7px}
+
+/* Hero */
+.hero{padding:22px 0 0}
+.hero-card{border-radius:26px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow);border:1px solid var(--line)}
+.hero-img{position:relative}
+.hero-img img{width:100%;height:min(72vw,560px);object-fit:cover;object-position:center 30%}
+.hero-badges{position:absolute;left:14px;bottom:14px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:rgba(7,28,40,.82);color:#FFF3D6;font-weight:800;font-size:.82rem;padding:7px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.chip b{color:var(--sun)}
+.hero-body{padding:22px 20px 24px}
+.eyebrow{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;color:var(--coral);margin:0 0 8px}
+.hero-body h1{font-size:clamp(2.1rem,7vw,3.4rem);font-weight:800}
+.hero-body h1 em{font-style:normal;color:var(--ocean)}
+.lede{font-size:1.08rem;color:var(--ink2);max-width:62ch;margin:12px 0 0}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
+.fact{background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.fact dt{font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0}
+.fact dd{margin:2px 0 0;font-family:"Baloo 2";font-weight:700;font-size:1.22rem}
+.fact dd small{font-size:.85rem;color:var(--ink2);font-family:"Nunito Sans";font-weight:700}
+@media(min-width:760px){.facts{grid-template-columns:repeat(4,1fr)}.hero-body{padding:28px 30px 30px}}
+
+/* Wave divider */
+.wave{display:block;width:100%;height:36px;color:var(--bg2);margin-top:26px}
+section{padding:34px 0 6px}
+.sec-head{max-width:70ch}
+.sec-head h2{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:800}
+.sec-head p{color:var(--ink2);margin:8px 0 0}
+
+/* Gallery */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 16px}
+.filter-btn{border:1.5px solid var(--line);background:var(--surface);color:var(--ink2);font-family:inherit;font-weight:800;font-size:.9rem;padding:9px 16px;border-radius:999px;cursor:pointer;min-height:44px}
+.filter-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:700px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1000px){.gallery{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 14px rgba(16,46,61,.06)}
+.card img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.card-body{padding:12px 14px 14px}
+.card-body h3{font-size:1.05rem;font-weight:700}
+.card-meta{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:4px;font-size:.86rem;color:var(--muted);font-weight:700}
+.pill{font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;color:#fff;white-space:nowrap}
+.pill-common{background:var(--common)} .pill-rare{background:var(--rare)} .pill-epic{background:var(--epic)} .pill-legendary{background:var(--legendary)}
+.card[hidden]{display:none}
+.hero-card-note{grid-column:1/-1;background:var(--surface2);border:1.5px dashed var(--sun);border-radius:var(--radius);padding:16px 18px;font-size:.95rem;color:var(--ink2)}
+.hero-card-note strong{color:var(--ink)}
+
+/* Rarity */
+.rarity-grid{display:grid;gap:14px;margin-top:18px}
+@media(min-width:860px){.rarity-grid{grid-template-columns:1.25fr .75fr;align-items:start}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 4px 14px rgba(16,46,61,.05)}
+.panel h3{font-size:1.2rem;margin-bottom:6px}
+.stackbar{display:flex;height:26px;border-radius:999px;overflow:hidden;margin:14px 0 8px;border:1px solid var(--line)}
+.stackbar div{height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.86rem;font-weight:700;color:var(--ink2);margin-bottom:14px}
+.legend i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{padding:10px 8px;text-align:left;border-top:1px solid var(--line);vertical-align:top}
+thead th{border-top:0;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tier-name{font-weight:800}
+.tier-name i{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:7px}
+tr.total td{font-weight:800;border-top:2px solid var(--ink)}
+.claim-big{font-family:"Baloo 2";font-size:2rem;font-weight:800;color:var(--ocean);line-height:1}
+.tier-picker{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+.tier-pick{border:1.5px solid var(--line);background:var(--surface2);border-radius:12px;padding:10px 12px;font-family:inherit;font-weight:800;color:var(--ink);cursor:pointer;text-align:left;font-size:.92rem;min-height:48px}
+.tier-pick[aria-pressed="true"]{border-color:var(--ocean);background:var(--surface);box-shadow:inset 0 0 0 1px var(--ocean)}
+.tier-pick small{display:block;color:var(--muted);font-weight:700}
+.note{font-size:.88rem;color:var(--muted)}
+
+/* Ladder / mint */
+.ladder{display:grid;gap:10px;margin-top:18px}
+@media(min-width:760px){.ladder{grid-template-columns:repeat(4,1fr)}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;position:relative}
+.step .range{font-weight:800;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.step .price{font-family:"Baloo 2";font-size:1.7rem;font-weight:800;margin-top:4px}
+.step .price small{font-size:.95rem;color:var(--ink2)}
+.step.free{border-color:var(--leaf);background:color-mix(in srgb, var(--surface) 82%, #2E9E5B 10%)}
+.step.free .price{color:var(--leaf)}
+.calc{margin-top:14px}
+.calc output{font-family:"Baloo 2";font-weight:800;font-size:1.3rem}
+input[type=range]{width:100%;accent-color:var(--coral);min-height:44px}
+.calc-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.mint-status{display:flex;gap:12px;align-items:flex-start;background:var(--surface2);border:1.5px dashed var(--sun);border-radius:var(--radius);padding:16px 18px;margin-top:16px}
+.mint-status p{margin:0;font-size:.95rem;color:var(--ink2)}
+.mint-status strong{color:var(--ink)}
+.steps-how{display:grid;gap:10px;margin-top:16px;counter-reset:how}
+@media(min-width:760px){.steps-how{grid-template-columns:repeat(2,1fr)}}
+.how{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 16px 58px;position:relative}
+.how::before{counter-increment:how;content:counter(how);position:absolute;left:16px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--ocean);color:#fff;font-family:"Baloo 2";font-weight:800;display:flex;align-items:center;justify-content:center}
+.how h3{font-size:1.05rem}
+.how p{margin:4px 0 0;color:var(--ink2);font-size:.94rem}
+
+/* Status */
+.status-list{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
+@media(min-width:760px){.status-list{grid-template-columns:1fr 1fr}}
+.status-list li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 15px;display:flex;gap:11px;align-items:flex-start;font-size:.95rem}
+.status-list li p{margin:0;color:var(--ink2)} .status-list li strong{color:var(--ink)}
+.badge{flex:none;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 9px;border-radius:999px;margin-top:1px}
+.badge-done{background:#DFF5E4;color:#14632F}
+.badge-wait{background:#FDEBC8;color:#7A5200}
+.badge-block{background:#FFE0D8;color:#8F2A12}
+@media (prefers-color-scheme: dark){.badge-done{background:#143D22;color:#7FE3A0}.badge-wait{background:#4A3808;color:#FFD97A}.badge-block{background:#4A1E12;color:#FFAB94}}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82em;word-break:break-all;background:var(--surface2);padding:2px 6px;border-radius:6px}
+.hash{font-size:.85rem;color:var(--ink2);margin-top:10px}
+
+footer{margin-top:44px;border-top:1px solid var(--line);background:var(--bg2);padding:26px 0 34px}
+footer .cols{display:flex;flex-wrap:wrap;gap:18px 34px;justify-content:space-between}
+footer a{font-weight:700}
+footer p{color:var(--muted);font-size:.88rem;max-width:60ch}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;background:color-mix(in srgb, var(--surface) 92%, transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px}
+.dock .dock-txt{font-size:.88rem;font-weight:700;color:var(--ink2);line-height:1.3}
+.dock .dock-txt strong{color:var(--ink);display:block;font-size:.95rem}
+.dock .btn{margin-left:auto;flex:none}
+@media(min-width:860px){.dock{display:none} footer{padding-bottom:30px}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap header-in">
+    <a class="logo" href="#top">Snake<span>Agent</span>NFT</a>
+    <nav class="main" aria-label="Sections">
+      <a href="#gallery">Gallery</a>
+      <a href="#rarity">Rarity &amp; $SNAKE</a>
+      <a href="#mint">Mint</a>
+      <a href="#status">Status</a>
+    </nav>
+    <div class="header-actions">
+      <a class="xlink" href="https://x.com/snakegameionft" target="_blank" rel="noopener" aria-label="SnakeAgentNFT on X (@snakegameionft)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.2l7.3-8.3L2.8 2h6.4l4.4 5.9L18.9 2zm-1.1 18h1.7L7.4 3.9H5.6L17.8 20z"/></svg>
+        <span class="handle">@snakegameionft</span>
+      </a>
+      <a class="btn btn-mint" href="#mint">Mint</a>
+    </div>
+  </div>
+</header>
+
+<div class="preview-banner" role="note">
+  <div class="wrap"><span class="dot" aria-hidden="true"></span><p style="margin:0"><strong>PREVIEW —</strong> This collection is not deployed yet and minting is not open. Everything below is the confirmed launch spec, shown so you can check the artwork, rarity, prices, and token claims before launch.</p></div>
+</div>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div class="hero-card">
+      <div class="hero-img">
+        <img src="assets/hero-snake.png" alt="Blue snake with a hibiscus flower and gold band, coiled on a tropical beach at sunset" fetchpriority="high">
+        <div class="hero-badges">
+          <span class="chip"><b>4,444</b>&nbsp;supply</span>
+          <span class="chip">BNB Chain · BEP-721</span>
+          <span class="chip">First mint <b>FREE</b></span>
+        </div>
+      </div>
+      <div class="hero-body">
+        <p class="eyebrow">Small snake · Big island energy</p>
+        <h1>A blue snake, a sunset beach, <em>and 4,443 friends.</em></h1>
+        <p class="lede">SnakeAgentNFT is a 4,444-piece collection of cute beach snakes on BNB Chain. Minting is agent-only — your AI agent draws a random snake from a shuffled on-chain deck — and every snake unlocks a one-time $SNAKE token claim based on its rarity.</p>
+        <div class="hero-cta">
+          <a class="btn btn-mint" href="#mint">See how minting works</a>
+          <a class="btn btn-ghost" href="#gallery">Browse the 11 designs</a>
+        </div>
+        <dl class="facts">
+          <div class="fact"><dt>Total supply</dt><dd>4,444</dd></div>
+          <div class="fact"><dt>Max per wallet</dt><dd>30 <small>mints</small></dd></div>
+          <div class="fact"><dt>Max wallet cost</dt><dd>0.0138 <small>BNB</small></dd></div>
+          <div class="fact"><dt>Royalty</dt><dd>5%</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave" viewBox="0 0 1440 36" preserveAspectRatio="none" aria-hidden="true"><path d="M0,18 C240,36 480,0 720,18 C960,36 1200,0 1440,18 L1440,36 L0,36 Z" fill="currentColor"/></svg>
+
+  <!-- GALLERY -->
+  <section id="gallery" style="background:var(--bg2);padding-top:6px">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The 11 designs</h2>
+        <p>Five Common colourways, two Rare, two Epic, and two Legendary. You don't pick your snake — the deck does. Each design's edition count is fixed in the deck before launch.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter gallery by rarity">
+        <button class="filter-btn" data-filter="all" aria-pressed="true">All 11</button>
+        <button class="filter-btn" data-filter="common" aria-pressed="false">Common</button>
+        <button class="filter-btn" data-filter="rare" aria-pressed="false">Rare</button>
+        <button class="filter-btn" data-filter="epic" aria-pressed="false">Epic</button>
+        <button class="filter-btn" data-filter="legendary" aria-pressed="false">Legendary</button>
+      </div>
+      <div class="gallery" id="galleryGrid">
+        <article class="card" data-rarity="common"><img src="assets/hero-snake.png" alt="Blue snake — the hero design" loading="lazy"><div class="card-body"><h3>Blue — Hero</h3><div class="card-meta"><span class="pill pill-common">Common</span><span>711 editions</span></div></div></article>
+        <article class="card" data-rarity="common"><img src="assets/tier-common-green.webp" alt="Green snake on the beach" loading="lazy"><div class="card-body"><h3>Green</h3><div class="card-meta"><span class="pill pill-common">Common</span><span>711 editions</span></div></div></article>
+        <article class="card" data-rarity="common"><img src="assets/tier-common-yellow.webp" alt="Yellow snake on the beach" loading="lazy"><div class="card-body"><h3>Yellow</h3><div class="card-meta"><span class="pill pill-common">Common</span><span>711 editions</span></div></div></article>
+        <article class="card" data-rarity="common"><img src="assets/tier-common-pink.webp" alt="Pink snake on the beach" loading="lazy"><div class="card-body"><h3>Pink</h3><div class="card-meta"><span class="pill pill-common">Common</span><span>711 editions</span></div></div></article>
+        <article class="card" data-rarity="common"><img src="assets/tier-common-teal.webp" alt="Teal snake on the beach" loading="lazy"><div class="card-body"><h3>Teal</h3><div class="card-meta"><span class="pill pill-common">Common</span><span>711 editions</span></div></div></article>
+        <article class="card" data-rarity="rare"><img src="assets/tier-rare-purple.webp" alt="Purple snake with flower crown and sunglasses" loading="lazy"><div class="card-body"><h3>Purple</h3><div class="card-meta"><span class="pill pill-rare">Rare</span><span>311 editions</span></div></div></article>
+        <article class="card" data-rarity="rare"><img src="assets/tier-rare-orange.webp" alt="Orange snake with surfboard and straw hat" loading="lazy"><div class="card-body"><h3>Orange</h3><div class="card-meta"><span class="pill pill-rare">Rare</span><span>311 editions</span></div></div></article>
+        <article class="card" data-rarity="epic"><img src="assets/tier-epic-golden.webp" alt="Golden snake with crown and golden lei" loading="lazy"><div class="card-body"><h3>Golden</h3><div class="card-meta"><span class="pill pill-epic">Epic</span><span>89 editions</span></div></div></article>
+        <article class="card" data-rarity="epic"><img src="assets/tier-epic-silver.webp" alt="Silver snake with crystal scales and pendant" loading="eager"><div class="card-body"><h3>Silver</h3><div class="card-meta"><span class="pill pill-epic">Epic</span><span>89 editions</span></div></div></article>
+        <article class="card" data-rarity="legendary"><img src="assets/tier-legendary-dragon.webp" alt="Golden dragon-snake" loading="eager"><div class="card-body"><h3>Dragon</h3><div class="card-meta"><span class="pill pill-legendary">Legendary</span><span>45 editions</span></div></div></article>
+        <article class="card" data-rarity="legendary"><img src="assets/tier-legendary-phoenix.webp" alt="Phoenix-snake with fiery plumage" loading="eager"><div class="card-body"><h3>Phoenix</h3><div class="card-meta"><span class="pill pill-legendary">Legendary</span><span>44 editions</span></div></div></article>
+      </div>
+      <p class="note" style="margin-top:14px">Draws are random from the full deck — a Common colourway is the likely pull (80% of the deck), and any single draw can land a Legendary. The deck order is committed on-chain as a hash before minting opens, so the shuffle can't be changed afterwards.</p>
+    </div>
+  </section>
+
+  <!-- RARITY + TOKEN -->
+  <section id="rarity">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Rarity, matched to the token</h2>
+        <p>Supply is split 80 / 14 / 4 / 2 across the four tiers — and the $SNAKE claim follows the same ladder. Rarer snake, bigger one-time claim. One claim per NFT, ever.</p>
+      </div>
+      <div class="rarity-grid">
+        <div class="panel">
+          <h3>Supply split — 4,444 total</h3>
+          <div class="stackbar" role="img" aria-label="Supply bar: Common 80 percent, Rare 14 percent, Epic 4 percent, Legendary 2 percent">
+            <div style="width:80%;background:var(--common)"></div>
+            <div style="width:14%;background:var(--rare)"></div>
+            <div style="width:4%;background:var(--epic)"></div>
+            <div style="width:2%;background:var(--legendary)"></div>
+          </div>
+          <div class="legend">
+            <span><i style="background:var(--common)"></i>Common 80%</span>
+            <span><i style="background:var(--rare)"></i>Rare 14%</span>
+            <span><i style="background:var(--epic)"></i>Epic 4%</span>
+            <span><i style="background:var(--legendary)"></i>Legendary 2%</span>
+          </div>
+          <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>Tier</th><th class="num">Snakes</th><th class="num">Share</th><th class="num">$SNAKE claim / NFT</th></tr></thead>
+            <tbody>
+              <tr><td class="tier-name"><i style="background:var(--common)"></i>Common</td><td class="num">3,555</td><td class="num">80.0%</td><td class="num">10,000</td></tr>
+              <tr><td class="tier-name"><i style="background:var(--rare)"></i>Rare</td><td class="num">622</td><td class="num">14.0%</td><td class="num">25,000</td></tr>
+              <tr><td class="tier-name"><i style="background:var(--epic)"></i>Epic</td><td class="num">178</td><td class="num">4.0%</td><td class="num">50,000</td></tr>
+              <tr><td class="tier-name"><i style="background:var(--legendary)"></i>Legendary</td><td class="num">89</td><td class="num">2.0%</td><td class="num">100,000</td></tr>
+              <tr class="total"><td>Total</td><td class="num">4,444</td><td class="num">100%</td><td class="num">68,900,000 max</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="note" style="margin-top:12px">If every snake is minted and claimed, total claims reach 68,900,000 $SNAKE — inside the token's hard cap of 100,000,000. Claims are tracked per token ID on-chain, so an NFT can never be claimed twice.</p>
+        </div>
+        <div class="panel">
+          <h3>What would your snake claim?</h3>
+          <p class="note" style="margin-top:0">Tap a tier to see its one-time $SNAKE claim.</p>
+          <div class="tier-picker" role="group" aria-label="Pick a rarity tier">
+            <button class="tier-pick" data-claim="10000" data-tier="Common" aria-pressed="true">Common<small>3,555 snakes · 80%</small></button>
+            <button class="tier-pick" data-claim="25000" data-tier="Rare" aria-pressed="false">Rare<small>622 snakes · 14%</small></button>
+            <button class="tier-pick" data-claim="50000" data-tier="Epic" aria-pressed="false">Epic<small>178 snakes · 4%</small></button>
+            <button class="tier-pick" data-claim="100000" data-tier="Legendary" aria-pressed="false">Legendary<small>89 snakes · 2%</small></button>
+          </div>
+          <p style="margin:10px 0 2px;color:var(--muted);font-weight:700;font-size:.88rem" id="claimTierLabel">COMMON — ONE-TIME CLAIM</p>
+          <p class="claim-big"><span id="claimAmount">10,000</span> $SNAKE</p>
+          <p class="note">Claim opens after launch. The claim belongs to the NFT: if you sell the snake before claiming, the buyer gets the claim.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINT -->
+  <section id="mint">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Mint prices — a ladder, not a flat fee</h2>
+        <p>Your first mint is free. After that, the price steps up the deeper you go — the same ladder for every wallet, read live from the contract at mint time. Maximum 30 mints per wallet, 0.0138 BNB all-in.</p>
+      </div>
+      <div class="ladder">
+        <div class="step free"><p class="range">Mint #1</p><p class="price">FREE</p><p class="note">One free draw per wallet. Gas only.</p></div>
+        <div class="step"><p class="range">Mints #2 – 10</p><p class="price">0.0002 <small>BNB each</small></p><p class="note">9 mints · 0.0018 BNB for the full step.</p></div>
+        <div class="step"><p class="range">Mints #11 – 20</p><p class="price">0.0004 <small>BNB each</small></p><p class="note">10 mints · 0.004 BNB for the full step.</p></div>
+        <div class="step"><p class="range">Mints #21 – 30</p><p class="price">0.0008 <small>BNB each</small></p><p class="note">10 mints · 0.008 BNB for the full step.</p></div>
+      </div>
+
+      <div class="panel calc">
+        <div class="calc-row">
+          <h3 style="font-size:1.15rem">Cost calculator</h3>
+          <output id="calcOut" for="mintCount">1 mint · 0 BNB total</output>
+        </div>
+        <label for="mintCount" style="font-weight:700;color:var(--ink2);font-size:.92rem">How many mints from one wallet? <strong id="calcCount" style="color:var(--ink)">1</strong> / 30</label>
+        <input type="range" id="mintCount" min="1" max="30" step="1" value="1">
+        <p class="note" style="margin:0">First mint free, then 0.0002 / 0.0004 / 0.0008 BNB per mint by step. Excludes gas. At 30 mints the total is exactly 0.0138 BNB — the contract rejects anything beyond it.</p>
+      </div>
+
+      <div class="mint-status" role="note">
+        <p><strong>Mint is not open yet.</strong> This is a preview page — there is no contract address and no live mint button. When the collection deploys on BNB Chain, minting will be agent-only (see below) and the contract address will be published here and on <a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X</a> at the same time. Anyone asking you to mint before that announcement is not us.</p>
+      </div>
+
+      <div class="steps-how">
+        <div class="how"><h3>Get an Agent ID</h3><p>Minting requires a SPACE ID Agent ID held by your agent wallet. No Agent ID, no mint — this gate is checked on-chain for every draw.</p></div>
+        <div class="how"><h3>Ask your agent to mint</h3><p>There is no mint button for regular wallets. Your AI agent (Binance Agentic Wallet) reads the next price from the contract's <code>priceFor()</code>, shows you a preview, and mints only after you confirm.</p></div>
+        <div class="how"><h3>The deck decides</h3><p>Each mint draws the next card from the shuffled deck — the design and rarity are a surprise until the draw lands. Overpayment is refunded in the same transaction.</p></div>
+        <div class="how"><h3>Claim your $SNAKE</h3><p>Once claims open, each unclaimed NFT pays out its tier's $SNAKE amount — 10,000 up to 100,000 — exactly once.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATUS -->
+  <section id="status">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Launch status — where things actually stand</h2>
+        <p>No invented progress bars. This is the real checklist as of this preview.</p>
+      </div>
+      <ul class="status-list">
+        <li><span class="badge badge-done">Done</span><p><strong>Artwork — 11 of 11 designs finished.</strong> Hero blue snake plus 10 variants, all in the same beach style, no text or watermarks.</p></li>
+        <li><span class="badge badge-done">Done</span><p><strong>Contracts built &amp; tested.</strong> Deck-draw NFT, $SNAKE rarity-claim token, and a fixed-price marketplace (0% fee, 5% royalty enforced) — test suite passing 8 of 8.</p></li>
+        <li><span class="badge badge-done">Done</span><p><strong>Metadata ready for all 4,444 tokens,</strong> with rarity, design, and edition attributes matching the deck.</p></li>
+        <li><span class="badge badge-wait">Pending</span><p><strong>Deployment.</strong> The collection is <strong>not deployed</strong> and mint is not open. Deploy happens only on an explicit go-ahead, and the address will be published here first.</p></li>
+        <li><span class="badge badge-wait">Proposed</span><p><strong>Symbols.</strong> NFT symbol <strong>SNAKEAGENT</strong> and token <strong>$SNAKE</strong> are proposals, not yet final — $SNAKE is the token symbol; the older Snake IO collection already uses SNAKE for its NFT.</p></li>
+        <li><span class="badge badge-wait">Next step</span><p><strong>GitHub push.</strong> The “Meta Muse AI” GitHub App install on the akungamesatu6-crypto account is confirmed done — the earlier 403 block is cleared. The push to <a href="https://github.com/akungamesatu6-crypto/Snakenft" target="_blank" rel="noopener">akungamesatu6-crypto/Snakenft</a> (page, contracts, and metadata, all ready) is the next step and will be verified when it runs.</p></li>
+      </ul>
+      <p class="hash">Deck hash (committed shuffle, verifiable at deploy): <code>0x53f73d5d9eb25f032cf512d01d2bb13eacf95229d296c03b00f45b88fb6f414e</code></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <p class="display" style="font-size:1.2rem;font-weight:800;color:var(--ink)">SnakeAgentNFT</p>
+      <p>4,444 beach snakes on BNB Chain. Agent-only deck-draw mint, first mint free, $SNAKE claims by rarity. Preview page — collection not yet deployed.</p>
+    </div>
+    <div>
+      <p style="margin:0 0 6px"><a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X — @snakegameionft</a></p>
+      <p style="margin:0 0 6px"><a href="https://github.com/akungamesatu6-crypto/Snakenft" target="_blank" rel="noopener">GitHub — akungamesatu6-crypto/Snakenft</a></p>
+      <p style="margin:0">Chain: BNB Smart Chain (56) · Standard: BEP-721 · Royalty: 5%</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Gallery filter
+(function(){
+  var btns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('#galleryGrid .card');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      var f = b.getAttribute('data-filter');
+      cards.forEach(function(c){
+        c.hidden = !(f === 'all' || c.getAttribute('data-rarity') === f);
+      });
+    });
+  });
+})();
+
+// $SNAKE claim picker
+(function(){
+  var picks = document.querySelectorAll('.tier-pick');
+  var amt = document.getElementById('claimAmount');
+  var lbl = document.getElementById('claimTierLabel');
+  picks.forEach(function(p){
+    p.addEventListener('click', function(){
+      picks.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      p.setAttribute('aria-pressed','true');
+      amt.textContent = Number(p.getAttribute('data-claim')).toLocaleString('en-US');
+      lbl.textContent = p.getAttribute('data-tier').toUpperCase() + ' — ONE-TIME CLAIM';
+    });
+  });
+})();
+
+// Mint cost calculator — ladder: #1 free, #2-10 @0.0002, #11-20 @0.0004, #21-30 @0.0008
+(function(){
+  var slider = document.getElementById('mintCount');
+  var out = document.getElementById('calcOut');
+  var cnt = document.getElementById('calcCount');
+  function cost(n){
+    var total = 0;
+    for (var i = 2; i <= n; i++){
+      if (i <= 10) total += 0.0002;
+      else if (i <= 20) total += 0.0004;
+      else total += 0.0008;
+    }
+    return total;
+  }
+  function fmt(v){ return (Math.round(v*10000)/10000).toString().replace(/(\.\d*?)0+$/,'$1').replace(/\.$/,''); }
+  function update(){
+    var n = Number(slider.value);
+    cnt.textContent = n;
+    out.textContent = n + (n === 1 ? ' mint' : ' mints') + ' · ' + fmt(cost(n)) + ' BNB total';
+  }
+  slider.addEventListener('input', update);
+  update();
+})();
+</script>
+</body>
+</html>
