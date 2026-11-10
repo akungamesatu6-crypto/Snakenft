@@ -157,6 +157,11 @@ tr.total td{font-weight:800;border-top:2px solid var(--ink)}
 .calc output{font-family:"Baloo 2";font-weight:800;font-size:1.3rem}
 input[type=range]{width:100%;accent-color:var(--coral);min-height:44px}
 .calc-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.addr-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.addr-list li{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-size:.92rem}
+.addr-list .addr-name{font-weight:800;color:var(--ink);min-width:118px}
+.addr-list a{text-decoration:none}
+.addr-list a:hover{text-decoration:underline}
 .mint-status{display:flex;gap:12px;align-items:flex-start;background:var(--surface2);border:1.5px dashed var(--sun);border-radius:var(--radius);padding:16px 18px;margin-top:16px}
 .mint-status p{margin:0;font-size:.95rem;color:var(--ink2)}
 .mint-status strong{color:var(--ink)}
@@ -214,7 +219,7 @@ footer p{color:var(--muted);font-size:.88rem;max-width:60ch}
 </header>
 
 <div class="preview-banner" role="note">
-  <div class="wrap"><span class="dot" aria-hidden="true"></span><p style="margin:0"><strong>PREVIEW —</strong> This collection is not deployed yet and minting is not open. Everything below is the confirmed launch spec, shown so you can check the artwork, rarity, prices, and token claims before launch.</p></div>
+  <div class="wrap"><span class="dot" aria-hidden="true"></span><p style="margin:0"><strong>PREVIEW —</strong> The contracts are deployed on BNB Chain, but minting is <strong>not open yet</strong>. Everything below is the confirmed launch spec, shown so you can check the artwork, rarity, prices, contract addresses, and token claims before launch.</p></div>
 </div>
 
 <main id="top">
@@ -358,7 +363,15 @@ footer p{color:var(--muted);font-size:.88rem;max-width:60ch}
       </div>
 
       <div class="mint-status" role="note">
-        <p><strong>Mint is not open yet.</strong> This is a preview page — there is no contract address and no live mint button. When the collection deploys on BNB Chain, minting will be agent-only (see below) and the contract address will be published here and on <a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X</a> at the same time. Anyone asking you to mint before that announcement is not us.</p>
+        <div>
+          <p><strong>Mint is not open yet.</strong> The contracts are deployed and verified on BNB Chain mainnet, but minting stays closed for now — there is no live mint button. Mint opens later, once launch prep is finished, and the opening will be announced here and on <a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X</a> at the same time. Anyone asking you to mint before that announcement is not us.</p>
+          <ul class="addr-list">
+            <li><span class="addr-name">$SNAKE token</span><a href="https://bscscan.com/address/0x79674a2954b9ed8D4348AC1AAf80E7b54edC4c4C" target="_blank" rel="noopener"><code>0x79674a2954b9ed8D4348AC1AAf80E7b54edC4c4C</code></a></li>
+            <li><span class="addr-name">SnakeAgentNFT</span><a href="https://bscscan.com/address/0xf7C1Ba2286Cee6eef10cC264664168fD015127b1" target="_blank" rel="noopener"><code>0xf7C1Ba2286Cee6eef10cC264664168fD015127b1</code></a></li>
+            <li><span class="addr-name">Marketplace</span><a href="https://bscscan.com/address/0x2452226409aE096D75232Ea3B787211E2A8c4Bdf" target="_blank" rel="noopener"><code>0x2452226409aE096D75232Ea3B787211E2A8c4Bdf</code></a></li>
+          </ul>
+          <p class="note" style="margin:10px 0 0">Tap an address to view the contract on BscScan.</p>
+        </div>
       </div>
 
       <div class="steps-how">
@@ -381,9 +394,11 @@ footer p{color:var(--muted);font-size:.88rem;max-width:60ch}
         <li><span class="badge badge-done">Done</span><p><strong>Artwork — 11 of 11 designs finished.</strong> Hero blue snake plus 10 variants, all in the same beach style, no text or watermarks.</p></li>
         <li><span class="badge badge-done">Done</span><p><strong>Contracts built &amp; tested.</strong> Deck-draw NFT, $SNAKE rarity-claim token, and a fixed-price marketplace (0% fee, 5% royalty enforced) — test suite passing 8 of 8.</p></li>
         <li><span class="badge badge-done">Done</span><p><strong>Metadata ready for all 4,444 tokens,</strong> with rarity, design, and edition attributes matching the deck.</p></li>
-        <li><span class="badge badge-wait">Pending</span><p><strong>Deployment.</strong> The collection is <strong>not deployed</strong> and mint is not open. Deploy happens only on an explicit go-ahead, and the address will be published here first.</p></li>
+        <li><span class="badge badge-done">Done</span><p><strong>Deployment.</strong> All three contracts are <strong>deployed on BNB Chain mainnet and verified on-chain</strong> — $SNAKE token, SnakeAgentNFT, and Marketplace. Their addresses are published in the Mint section above, each linked to BscScan.</p></li>
+        <li><span class="badge badge-wait">Closed</span><p><strong>Mint — still closed.</strong> Minting has <strong>not</strong> opened (<code>mintActive = 0</code>, nothing minted yet). The collection is deployed but not launched publicly; mint opens later, once launch prep is finished.</p></li>
         <li><span class="badge badge-wait">Proposed</span><p><strong>Symbols.</strong> NFT symbol <strong>SNAKEAGENT</strong> and token <strong>$SNAKE</strong> are proposals, not yet final — $SNAKE is the token symbol; the older Snake IO collection already uses SNAKE for its NFT.</p></li>
-        <li><span class="badge badge-wait">Next step</span><p><strong>GitHub push.</strong> The “Meta Muse AI” GitHub App install on the akungamesatu6-crypto account is confirmed done — the earlier 403 block is cleared. The push to <a href="https://github.com/akungamesatu6-crypto/Snakenft" target="_blank" rel="noopener">akungamesatu6-crypto/Snakenft</a> (page, contracts, and metadata, all ready) is the next step and will be verified when it runs.</p></li>
+        <li><span class="badge badge-done">Done</span><p><strong>GitHub — repo live.</strong> <a href="https://github.com/akungamesatu6-crypto/Snakenft" target="_blank" rel="noopener">akungamesatu6-crypto/Snakenft</a> is live with the page, contracts, metadata, and all 11 artwork assets.</p></li>
+        <li><span class="badge badge-done">Done</span><p><strong>Site deployed on Vercel.</strong> <a href="https://snakeagentnft.vercel.app/" target="_blank" rel="noopener">snakeagentnft.vercel.app</a> is live. The custom domain <strong>snakegameio.online</strong> has been added to the project — its DNS update is still pending, so the custom domain doesn't point here yet.</p></li>
       </ul>
       <p class="hash">Deck hash (committed shuffle, verifiable at deploy): <code>0x53f73d5d9eb25f032cf512d01d2bb13eacf95229d296c03b00f45b88fb6f414e</code></p>
     </div>
@@ -394,7 +409,7 @@ footer p{color:var(--muted);font-size:.88rem;max-width:60ch}
   <div class="wrap cols">
     <div>
       <p class="display" style="font-size:1.2rem;font-weight:800;color:var(--ink)">SnakeAgentNFT</p>
-      <p>4,444 beach snakes on BNB Chain. Agent-only deck-draw mint, first mint free, $SNAKE claims by rarity. Preview page — collection not yet deployed.</p>
+      <p>4,444 beach snakes on BNB Chain. Agent-only deck-draw mint, first mint free, $SNAKE claims by rarity. Preview page — contracts deployed, mint not open yet.</p>
     </div>
     <div>
       <p style="margin:0 0 6px"><a href="https://x.com/snakegameionft" target="_blank" rel="noopener">X — @snakegameionft</a></p>
