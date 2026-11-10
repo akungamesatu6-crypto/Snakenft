@@ -334,6 +334,25 @@ img,svg,video{max-width:100%}
 .btn-xpost:hover{background:var(--ocean-deep);color:#fff}
 .xpost-actions .note{margin:0}
 @media(min-width:560px){.xpost-actions{flex-direction:row;align-items:center}.btn-xpost{width:auto;flex:none;white-space:nowrap;padding-left:22px;padding-right:22px}.xpost-body{padding:16px 18px 18px}}
+/* Marketplace — own escrow market + Element, beach theme */
+.mkt-grid{display:grid;gap:14px;margin-top:18px}
+@media(min-width:860px){.mkt-grid{grid-template-columns:1fr 1fr;align-items:stretch}}
+.mkt-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:0 4px 14px rgba(16,46,61,.05);display:flex;flex-direction:column;gap:10px;min-width:0}
+.mkt-card h3{font-size:1.2rem}
+.mkt-card p{margin:0;color:var(--ink2);font-size:.95rem}
+.mkt-card .addr-line{font-size:.88rem}
+.mkt-feats{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:7px;font-size:.95rem;color:var(--ink2)}
+.mkt-feats li{display:flex;gap:9px;align-items:flex-start}
+.mkt-feats li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--ocean);margin-top:8px}
+.mkt-feats strong{color:var(--ink)}
+.mkt-status{display:flex;gap:10px;align-items:flex-start;background:var(--surface2);border:1.5px dashed var(--sun);border-radius:14px;padding:13px 15px;margin-top:auto}
+.mkt-status p{margin:0;font-size:.93rem;color:var(--ink2)}
+.mkt-status strong{color:var(--ink)}
+.mkt-card.element{background:var(--surface2)}
+.mkt-card.element .btn{align-self:flex-start;margin-top:auto}
+.btn-element{background:var(--ocean);color:#fff;box-shadow:0 6px 16px rgba(14,124,134,.3)}
+.btn-element:hover{background:var(--ocean-deep);color:#fff}
+@media(max-width:759px){.mkt-card{padding:15px}.mkt-card.element .btn{align-self:stretch}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.burger span{transition:none}.mobile-menu.is-open{animation:none}}
 </style>
 </head>
@@ -348,6 +367,7 @@ img,svg,video{max-width:100%}
       <a href="#rarity" data-i18n="nav.rarity">Rarity</a>
       <a href="#rarity">$SNAKE</a>
       <a href="#contracts" data-i18n="nav.contracts">Contracts</a>
+      <a href="#marketplace" data-i18n="nav.marketplace">Marketplace</a>
       <a href="#status" data-i18n="nav.status">Status</a>
     </nav>
     <div class="header-actions">
@@ -376,6 +396,7 @@ img,svg,video{max-width:100%}
         <a href="#rarity"><span class="mnav-main" data-i18n="nav.rarity">Rarity</span> <span data-i18n="menu.rarityTag">4 tiers →</span></a>
         <a href="#rarity"><span class="mnav-main">$SNAKE</span> <span data-i18n="menu.snakeTag">Claims →</span></a>
         <a href="#contracts"><span class="mnav-main" data-i18n="nav.contracts">Contracts</span> <span>BscScan →</span></a>
+        <a href="#marketplace"><span class="mnav-main" data-i18n="nav.marketplace">Marketplace</span> <span data-i18n="menu.marketTag">Trade →</span></a>
         <a href="#share"><span class="mnav-main" data-i18n="menu.share">Draft Post X</span> <span data-i18n="menu.shareTag">Share →</span></a>
         <a href="#faq"><span class="mnav-main">FAQ</span> <span data-i18n="menu.faqTag">Status →</span></a>
         <a href="https://x.com/snakegameionft" target="_blank" rel="noopener"><span class="mnav-main">X</span> <span>@snakegameionft ↗</span></a>
@@ -617,6 +638,36 @@ img,svg,video{max-width:100%}
     </div>
   </section>
 
+  <!-- MARKETPLACE -->
+  <section id="marketplace">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="mkt.h2">Marketplace</h2>
+        <p data-i18n="mkt.p">Once the snakes are out on the beach, trading happens in two places: our own escrow marketplace built for this collection, and Element Market for secondary trading.</p>
+      </div>
+      <div class="mkt-grid">
+        <div class="mkt-card">
+          <h3 data-i18n="mkt.ownH">Our own marketplace</h3>
+          <p data-i18n="mkt.ownP">A fixed-price escrow marketplace deployed for SnakeAgentNFT. When you list a snake, the NFT is held safely in the marketplace contract until it sells or you cancel — no peer-to-peer trust needed.</p>
+          <ul class="mkt-feats">
+            <li data-i18n="mkt.f1"><strong>0% platform fee</strong>&nbsp;— the seller keeps the full sale price, minus royalty.</li>
+            <li data-i18n="mkt.f2"><strong>5% royalty to the owner</strong>&nbsp;on every sale, enforced by the contract.</li>
+            <li data-i18n="mkt.f3"><strong>List · Buy · Cancel</strong>&nbsp;— fixed-price listings only, settled through escrow.</li>
+          </ul>
+          <p class="addr-line"><span class="addr-name" style="font-weight:800;color:var(--ink)" data-i18n="addr.market">Marketplace</span><br><a href="https://bscscan.com/address/0x2452226409aE096D75232Ea3B787211E2A8c4Bdf" target="_blank" rel="noopener"><code>0x2452226409aE096D75232Ea3B787211E2A8c4Bdf</code></a></p>
+          <div class="mkt-status" role="note">
+            <p data-i18n="mkt.status"><strong>No listings yet — marketplace opens after mint.</strong> Minting is still closed and no snakes exist yet, so there is nothing to trade. Listings open once the first snakes are minted.</p>
+          </div>
+        </div>
+        <div class="mkt-card element">
+          <h3 data-i18n="mkt.elH">Element Market</h3>
+          <p data-i18n="mkt.elP">SnakeAgentNFT is also on Element Market, a third-party secondary marketplace. You can browse the collection there now, and trade snakes on Element once they have been minted and listed by their owners.</p>
+          <a class="btn btn-element" href="https://element.market/collections/snakeagentnft" target="_blank" rel="noopener"><span data-i18n="mkt.elBtn">Trade on Element →</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- STATUS / FAQ -->
   <section id="status">
     <span id="faq" aria-hidden="true"></span>
@@ -660,8 +711,8 @@ img,svg,video{max-width:100%}
 var DICT = {
 en: {
 "title": `SnakeAgentNFT — Preview`,
-"nav.designs": `Designs`, "nav.how": `How it works`, "nav.rarity": `Rarity`, "nav.contracts": `Contracts`, "nav.status": `Status`, "nav.mint": `Mint`,
-"menu.mintTag": `Not open yet →`, "menu.howTag": `Agent mint →`, "menu.designsTag": `11 designs →`, "menu.rarityTag": `4 tiers →`, "menu.snakeTag": `Claims →`, "menu.share": `Draft Post X`, "menu.shareTag": `Share →`, "menu.faqTag": `Status →`, "menu.open": `Open menu`, "menu.close": `Close menu`,
+"nav.designs": `Designs`, "nav.how": `How it works`, "nav.rarity": `Rarity`, "nav.contracts": `Contracts`, "nav.marketplace": `Marketplace`, "nav.status": `Status`, "nav.mint": `Mint`,
+"menu.mintTag": `Not open yet →`, "menu.howTag": `Agent mint →`, "menu.designsTag": `11 designs →`, "menu.rarityTag": `4 tiers →`, "menu.snakeTag": `Claims →`, "menu.marketTag": `Trade →`, "menu.share": `Draft Post X`, "menu.shareTag": `Share →`, "menu.faqTag": `Status →`, "menu.open": `Open menu`, "menu.close": `Close menu`,
 "banner": `<strong>PREVIEW —</strong> The contracts are deployed on BNB Chain, but minting is <strong>not open yet</strong>. Everything below is the confirmed launch spec, shown so you can check the artwork, rarity, prices, contract addresses, and token claims before launch.`,
 "hero.supply": `supply`, "hero.firstMint": `First mint`, "hero.eyebrow": `Small snake · Big island energy`,
 "hero.h1": `A blue snake, a sunset beach, <em>and 4,443 friends.</em>`,
@@ -697,6 +748,14 @@ en: {
 "how.t2": `Ask your agent to mint`, "how.p2": `There is no mint button for regular wallets. Your AI agent (Binance Agentic Wallet) reads the next price from the contract's <code>priceFor()</code>, shows you a preview, and mints only after you confirm.`,
 "how.t3": `The deck decides`, "how.p3": `Each mint draws the next card from the shuffled deck — the design and rarity are a surprise until the draw lands. Overpayment is refunded in the same transaction.`,
 "how.t4": `Claim your $SNAKE`, "how.p4": `Once claims open, each unclaimed NFT pays out its tier's $SNAKE amount — 10,000 up to 100,000 — exactly once.`,
+"mkt.h2": `Marketplace`, "mkt.p": `Once the snakes are out on the beach, trading happens in two places: our own escrow marketplace built for this collection, and Element Market for secondary trading.`,
+"mkt.ownH": `Our own marketplace`, "mkt.ownP": `A fixed-price escrow marketplace deployed for SnakeAgentNFT. When you list a snake, the NFT is held safely in the marketplace contract until it sells or you cancel — no peer-to-peer trust needed.`,
+"mkt.f1": `<strong>0% platform fee</strong>&nbsp;— the seller keeps the full sale price, minus royalty.`,
+"mkt.f2": `<strong>5% royalty to the owner</strong>&nbsp;on every sale, enforced by the contract.`,
+"mkt.f3": `<strong>List · Buy · Cancel</strong>&nbsp;— fixed-price listings only, settled through escrow.`,
+"mkt.status": `<strong>No listings yet — marketplace opens after mint.</strong> Minting is still closed and no snakes exist yet, so there is nothing to trade. Listings open once the first snakes are minted.`,
+"mkt.elH": `Element Market`, "mkt.elP": `SnakeAgentNFT is also on Element Market, a third-party secondary marketplace. You can browse the collection there now, and trade snakes on Element once they have been minted and listed by their owners.`,
+"mkt.elBtn": `Trade on Element →`,
 "share.h2": `Draft X Post Card`, "share.p": `A ready-to-share draft post for X — poster and caption are done. Just tap the button, double-check on X, then post. Mint is still not open.`,
 "share.badge": `Draft`, "share.btn": `Post on X`, "share.note": `Opens the X composer in a new tab with the caption above already filled in.`,
 "status.h2": `Launch status — where things actually stand`, "status.p": `No invented progress bars. This is the real checklist as of this preview.`,
@@ -715,8 +774,8 @@ en: {
 },
 zh: {
 "title": `SnakeAgentNFT — 预览`,
-"nav.designs": `设计`, "nav.how": `铸造方式`, "nav.rarity": `稀有度`, "nav.contracts": `合约`, "nav.status": `状态`, "nav.mint": `铸造`,
-"menu.mintTag": `尚未开放 →`, "menu.howTag": `智能体铸造 →`, "menu.designsTag": `11 款设计 →`, "menu.rarityTag": `4 个等级 →`, "menu.snakeTag": `领取 →`, "menu.share": `X 帖子草稿`, "menu.shareTag": `分享 →`, "menu.faqTag": `状态 →`, "menu.open": `打开菜单`, "menu.close": `关闭菜单`,
+"nav.designs": `设计`, "nav.how": `铸造方式`, "nav.rarity": `稀有度`, "nav.contracts": `合约`, "nav.marketplace": `交易市场`, "nav.status": `状态`, "nav.mint": `铸造`,
+"menu.mintTag": `尚未开放 →`, "menu.howTag": `智能体铸造 →`, "menu.designsTag": `11 款设计 →`, "menu.rarityTag": `4 个等级 →`, "menu.snakeTag": `领取 →`, "menu.marketTag": `交易 →`, "menu.share": `X 帖子草稿`, "menu.shareTag": `分享 →`, "menu.faqTag": `状态 →`, "menu.open": `打开菜单`, "menu.close": `关闭菜单`,
 "banner": `<strong>预览 —</strong> 合约已部署在 BNB Chain 上，但铸造<strong>尚未开放</strong>。以下均为已确认的上线规格，方便你在上线前核对 artwork、稀有度、价格、合约地址和代币领取。`,
 "hero.supply": `总量`, "hero.firstMint": `首次铸造`, "hero.eyebrow": `小蛇 · 大大的海岛能量`,
 "hero.h1": `一条蓝蛇、一片落日海滩，<em>还有 4,443 个朋友。</em>`,
@@ -752,6 +811,14 @@ zh: {
 "how.t2": `让你的智能体来铸造`, "how.p2": `普通钱包没有铸造按钮。你的 AI 智能体（Binance Agentic Wallet）会从合约的 <code>priceFor()</code> 读取下一个价格，向你展示预览，并在你确认后才铸造。`,
 "how.t3": `由牌组决定`, "how.p3": `每次铸造都会从洗好的牌组中抽取下一张——设计和稀有度在抽取落地前都是惊喜。多付的金额会在同一笔交易中退回。`,
 "how.t4": `领取你的 $SNAKE`, "how.p4": `领取开放后，每个未领取的 NFT 将按其等级支付 $SNAKE——10,000 到 100,000——且仅此一次。`,
+"mkt.h2": `交易市场`, "mkt.p": `等蛇都来到海滩后，交易将在两个地方进行：我们为本系列部署的自有托管交易市场，以及用于二级交易的 Element Market。`,
+"mkt.ownH": `自有交易市场`, "mkt.ownP": `为 SnakeAgentNFT 部署的固定价格托管交易市场。当你上架一条蛇时，NFT 会安全地托管在市场合约中，直到售出或你取消为止——无需点对点互信。`,
+"mkt.f1": `<strong>0% 平台手续费</strong>&nbsp;——卖家保留全部售价，仅扣除版税。`,
+"mkt.f2": `<strong>每笔交易 5% 版税归所有者</strong>，由合约强制执行。`,
+"mkt.f3": `<strong>上架 · 购买 · 取消</strong>&nbsp;——仅限固定价格挂单，通过托管结算。`,
+"mkt.status": `<strong>暂无挂单——交易市场将在铸造后开放。</strong> 铸造仍处于关闭状态，目前还没有任何蛇，因此尚无可交易物品。首批蛇被铸造后即可上架。`,
+"mkt.elH": `Element Market`, "mkt.elP": `SnakeAgentNFT 也已上线 Element Market——一个第三方二级交易市场。你现在就可以在那里浏览本系列；等蛇被铸造并由持有者上架后，即可在 Element 上交易。`,
+"mkt.elBtn": `在 Element 上交易 →`,
 "share.h2": `X 帖子卡片草稿`, "share.p": `一份可直接分享到 X 的帖子草稿——海报和文案都已准备好。只需点击按钮，在 X 上再确认一次，然后发布。铸造仍未开放。`,
 "share.badge": `草稿`, "share.btn": `发布到 X`, "share.note": `在新标签页中打开 X 编辑器，上面的文案已预先填好。`,
 "status.h2": `上线状态 — 实际进展`, "status.p": `没有虚构的进度条。这是本预览截至目前的真实清单。`,
@@ -770,8 +837,8 @@ zh: {
 },
 ja: {
 "title": `SnakeAgentNFT — プレビュー`,
-"nav.designs": `デザイン`, "nav.how": `ミント方法`, "nav.rarity": `レアリティ`, "nav.contracts": `コントラクト`, "nav.status": `ステータス`, "nav.mint": `ミント`,
-"menu.mintTag": `まだ開始していません →`, "menu.howTag": `エージェントミント →`, "menu.designsTag": `11 デザイン →`, "menu.rarityTag": `4 ティア →`, "menu.snakeTag": `請求 →`, "menu.share": `X 投稿ドラフト`, "menu.shareTag": `シェア →`, "menu.faqTag": `ステータス →`, "menu.open": `メニューを開く`, "menu.close": `メニューを閉じる`,
+"nav.designs": `デザイン`, "nav.how": `ミント方法`, "nav.rarity": `レアリティ`, "nav.contracts": `コントラクト`, "nav.marketplace": `マーケットプレイス`, "nav.status": `ステータス`, "nav.mint": `ミント`,
+"menu.mintTag": `まだ開始していません →`, "menu.howTag": `エージェントミント →`, "menu.designsTag": `11 デザイン →`, "menu.rarityTag": `4 ティア →`, "menu.snakeTag": `請求 →`, "menu.marketTag": `取引 →`, "menu.share": `X 投稿ドラフト`, "menu.shareTag": `シェア →`, "menu.faqTag": `ステータス →`, "menu.open": `メニューを開く`, "menu.close": `メニューを閉じる`,
 "banner": `<strong>プレビュー —</strong> コントラクトは BNB Chain にデプロイ済みですが、ミントは<strong>まだ開始していません</strong>。以下はすべて確定済みのローンチ仕様です。アートワーク、レアリティ、価格、コントラクトアドレス、トークンの請求を事前に確認できます。`,
 "hero.supply": `供給量`, "hero.firstMint": `初回ミント`, "hero.eyebrow": `小さな蛇 · 大きな島のエネルギー`,
 "hero.h1": `青い蛇と夕日のビーチ、<em>そして 4,443 匹の仲間たち。</em>`,
@@ -807,6 +874,14 @@ ja: {
 "how.t2": `エージェントにミントを依頼`, "how.p2": `通常のウォレット向けのミントボタンはありません。AI エージェント（Binance Agentic Wallet）がコントラクトの <code>priceFor()</code> から次の価格を読み取り、プレビューを表示し、あなたが確認した後にのみミントします。`,
 "how.t3": `デッキが決める`, "how.p3": `各ミントはシャッフルされたデッキから次のカードを引きます——デザインとレアリティはドローが確定するまでサプライズです。過払い分は同じトランザクションで返金されます。`,
 "how.t4": `$SNAKE を請求`, "how.p4": `請求が開始すると、未請求の NFT はティアに応じた $SNAKE（10,000 ～ 100,000）を正確に一度だけ支払います。`,
+"mkt.h2": `マーケットプレイス`, "mkt.p": `蛇たちがビーチに揃ったら、取引は 2 か所で行われます：このコレクションのためにデプロイされた独自のエスクロー型マーケットプレイスと、二次取引向けの Element Market です。`,
+"mkt.ownH": `独自マーケットプレイス`, "mkt.ownP": `SnakeAgentNFT のためにデプロイされた固定価格のエスクロー型マーケットプレイスです。蛇を出品すると、NFT は売却されるかキャンセルされるまでマーケットプレイスのコントラクトに安全に保管されます——個人間の信頼は不要です。`,
+"mkt.f1": `<strong>プラットフォーム手数料 0%</strong>&nbsp;——売り手はロイヤルティを除いた売却額を全額受け取ります。`,
+"mkt.f2": `<strong>すべての売却で所有者に 5% のロイヤルティ</strong>、コントラクトにより強制されます。`,
+"mkt.f3": `<strong>出品 · 購入 · キャンセル</strong>&nbsp;——固定価格の出品のみ、エスクローで決済されます。`,
+"mkt.status": `<strong>まだ出品はありません——マーケットプレイスはミント後にオープンします。</strong> ミントはまだクローズしており、蛇はまだ存在しないため、取引できるものはありません。最初の蛇がミントされ次第、出品が開始します。`,
+"mkt.elH": `Element Market`, "mkt.elP": `SnakeAgentNFT はサードパーティの二次マーケットプレイスである Element Market にも掲載されています。今すぐコレクションを閲覧でき、蛇がミントされ所有者が出品すれば Element で取引できます。`,
+"mkt.elBtn": `Element で取引 →`,
 "share.h2": `X 投稿カードのドラフト`, "share.p": `X へシェアできる下書き投稿——ポスターとキャプションは完成しています。ボタンをタップし、X で最終確認して投稿するだけです。ミントはまだ開始していません。`,
 "share.badge": `ドラフト`, "share.btn": `X に投稿`, "share.note": `新しいタブで X の投稿画面が開き、上のキャプションが入力済みになります。`,
 "status.h2": `ローンチ状況 — 実際の進捗`, "status.p": `捏造の進捗バーはありません。これはプレビュー時点の実際のチェックリストです。`,
